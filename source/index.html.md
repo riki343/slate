@@ -1,15 +1,10 @@
 ---
-title: API Reference
+title: FOODIZ API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - python
-  - javascript
+  - general
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
   - errors
@@ -19,171 +14,232 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to the FOODIZ API Documentation
 
 # Authentication
 
-> To authorize, use this code:
+## (REST) Authenticate via social
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> Success Response:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "token": "ddadu6dwatdfawd8awfae8w9awf12bjklwhfblkvjlanwerkcj",
+    "expiresAt": "2005-08-15T15:52:01+0000"
 }
 ```
 
-This endpoint retrieves a specific kitten.
+> Error Response
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+```json
+{
+    "message": "some message"
+}
+```
+
+This endpoint authenticate user and retrieve token for application.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST http://foodiz.com/api/authentication`
 
-### URL Parameters
+### Request Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Parameter   | Place | Type      | Description
+----------- | ----- | --------- | -----------
+token       | body  | string    | token from social
+secret      | body  | string    | this parameter required only when social = "twitter"
+deviceID    | body  | string    | unique device ID
+social      | body  | string    | can be: "twitter", "facebook", "google"
+type        | body  | string    | "android", "desktop"(, "ios"?)
 
+<aside class="success">
+ Remember — all parameters is required, except secret
+</aside>
+
+### Success Response model
+
+Parameter | Type     | Description
+--------- | -------- | -----------
+token     | string   | token for mobile app
+expiresAt | string   | token expiration date (format: ISO 8601)
+
+
+# Chat
+
+## (REST) Get Chats in area
+
+> Success Response:
+
+```json
+[
+    {
+        "id": 5,
+        "title": "some title",
+        "messages": [
+            {
+                "chatID": 1,
+                "userID": 12,
+                "username": "John Doe",
+                "avatar": "http://127.0.0.1/uploads/images/some_image.png",
+                "type": "message",
+                "photoID": 251,
+                "photoUrl": "http://127.0.0.1/uploads/images/some_other_image.jpg",
+                "videoID": 85,
+                "videoUrl": "https://www.youtube.com/watch?v=Yr0o6oIw3Nw",
+                "created": "2005-08-15T15:52:01+0000",
+                "updated": "2005-08-15T15:52:01+0000",
+                "eventID": 23,
+                "event": {
+                    "id": 23,
+                    "title": "Some event",
+                    "userID": 18,
+                    "created": "2005-08-15T15:52:01+0000",
+                    "updated": "2005-08-15T15:52:01+0000",
+                    "status": "active"
+                }
+            }
+        ]
+    }
+]
+```
+
+> Error Response
+
+```json
+{
+    "message": "some message"
+}
+```
+
+Get all general chats in your area
+
+### HTTP Request
+
+`POST http://foodiz.com/api/chats/around`
+
+### Request Parameters
+
+Parameter   | Place | Type      | Description
+----------- | ----- | --------- | -----------
+address     | body  | string    | Address from geocoder
+latitude    | body  | float     | latitude from geocoder
+longitude   | body  | float     | longitude from geocoder
+
+### Success Response model
+
+Parameter   | Type     | Description
+----------- | -------- | -----------
+id          | integer  | id of chat room
+title       | string   | chat title
+messages    | array    | array with chat messages
+chatID      | integer  | id chat that message related to
+userID      | integer  | id of user that posted message
+message     | string   | 
+username    | string   | username of user that posted message
+avatar      | string   | avatar of user that posted message
+type        | string   | type of message, it can be: image, video, event, message
+photoID     | integer  | id of posted photo. It's NOT NULL only if type = "image"
+photoUrl    | string   | url of posted photo. It's NOT NULL only if type = "image"
+videoID     | integer  | id of posted video. It's NOT NULL only if type = "video"
+videoUrl    | string   | url of posted video. It's NOT NULL only if type = "video"
+eventID     | integer  | id of posted event. It's NOT NULL only if type = "event"
+event       | object   | event object. It's NOT NULL only if type = "event"
+status      | string   | this value indicate's event status. values can be: "active", "finished", "closed"
+created     | string   | creation date (format: ISO 8601)
+updated     | string   | last updated (format: ISO 8601)
+
+
+
+## (WS) Connect to chat
+
+> Success Response
+
+```json
+{
+    "message": "Connected"
+}
+```
+
+### WEBSOCKETS Request
+
+`ws://foodiz.com`
+
+### Join room
+
+`general.{country}.{city}`
+
+### Request Parameters
+
+Parameter   | Place | Type      | Description
+----------- | ----- | --------- | -----------
+country     | json  | string    | country that the chat is related to
+city        | json  | string    | city that the chat is related to
+
+
+
+## (WS) Post message in chat
+
+> Request body
+
+```json
+{
+    "action": "general.post.message",
+    "message": "some message",
+    "token": "dajkwdhklawdwiuaye73yurha322ueudho82uh2e2lie"
+}
+```
+
+> Success Response
+
+```json
+{
+    "chatID": 1,
+    "userID": 12,
+    "username": "John Doe",
+    "avatar": "http://127.0.0.1/uploads/images/some_image.png",
+    "message": "Some message",
+    "type": "message",
+    "photoID": null,
+    "photoUrl": null,
+    "videoID": null,
+    "videoUrl": null,
+    "created": "2005-08-15T15:52:01+0000",
+    "updated": "2005-08-15T15:52:01+0000",
+    "eventID": null,
+    "event": null
+}
+```
+
+### WEBSOCKETS request
+
+`ws://foodiz.com`
+
+### Request Parameters
+
+Parameter   | Place | Type      | Description
+----------- | ----- | --------- | -----------
+action      | json  | string    | action that backend may to do
+message     | json  | string    | the message that you want to post (max 500 characters)
+token       | json  | string    | application token 
+
+### Success Response model
+
+Parameter   | Type     | Description
+----------- | -------- | -----------
+id          | integer  | message id
+chatID      | integer  | id chat that message related to
+userID      | integer  | id of user that posted message
+message     | string   | 
+username    | string   | username of user that posted message
+avatar      | string   | avatar of user that posted message
+type        | string   | type of message, it can be: image, video, event, message
+photoID     | null     | id of posted photo. It's NOT NULL only if type = "image"
+photoUrl    | null     | url of posted photo. It's NOT NULL only if type = "image"
+videoID     | null     | id of posted video. It's NOT NULL only if type = "video"
+videoUrl    | null     | url of posted video. It's NOT NULL only if type = "video"
+eventID     | null     | id of posted event. It's NOT NULL only if type = "event"
+event       | null     | event object. It's NOT NULL only if type = "event"
+status      | string   | this value indicate's event status. values can be: "active", "finished", "closed"
+created     | string   | creation date (format: ISO 8601)
+updated     | string   | last updated (format: ISO 8601)
