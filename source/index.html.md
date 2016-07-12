@@ -75,13 +75,7 @@ expiresAt | string   | token expiration date (format: ISO 8601)
 }
 ```
 
-> 404 Error Response
-
-```json
-{
-    "message": "Token not found"
-}
-```
+> 401 Error: token not found
 
 > Error Response
 
