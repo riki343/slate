@@ -41,7 +41,7 @@ This endpoint authenticate user and retrieve token for application.
 
 ### HTTP Request
 
-`POST http://foodiz.com/api/authentication`
+`POST http://52.50.150.232/api/login`
 
 ### Request Parameters
 
@@ -49,9 +49,9 @@ Parameter   | Place | Type      | Description
 ----------- | ----- | --------- | -----------
 token       | body  | string    | token from social
 secret      | body  | string    | this parameter required only when social = "twitter"
-deviceID    | body  | string    | unique device ID
+deviceId    | body  | string    | unique device ID
 social      | body  | string    | can be: "twitter", "facebook", "google"
-type        | body  | string    | "android", "desktop"(, "ios"?)
+deviceType  | body  | string    | "android", "desktop"(, "ios"?)
 
 <aside class="success">
  Remember — all parameters is required, except secret
@@ -63,6 +63,45 @@ Parameter | Type     | Description
 --------- | -------- | -----------
 token     | string   | token for mobile app
 expiresAt | string   | token expiration date (format: ISO 8601)
+
+
+## (REST) Logout
+
+> Success Response:
+
+```json
+{
+    "message": "You logged out"
+}
+```
+
+> 404 Error Response
+
+```json
+{
+    "message": "Token not found"
+}
+```
+
+> Error Response
+
+```json
+{
+    "message": "some error message"
+}
+```
+
+This endpoint authenticate user and retrieve token for application.
+
+### HTTP Request
+
+`POST http://52.50.150.232/api/logout`
+
+### Success Response model
+
+Parameter | Type     | Description
+--------- | -------- | -----------
+message   | string   | 
 
 
 # Chat
@@ -116,7 +155,7 @@ Get all general chats in your area
 
 ### HTTP Request
 
-`POST http://foodiz.com/api/chats/around`
+`POST http://52.50.150.232/api/chats/around`
 
 ### Request Parameters
 
@@ -163,7 +202,7 @@ updated     | string   | last updated (format: ISO 8601)
 
 ### WEBSOCKETS Request
 
-`ws://foodiz.com`
+`ws://52.50.150.232`
 
 ### Join room
 
@@ -213,7 +252,7 @@ city        | json  | string    | city that the chat is related to
 
 ### WEBSOCKETS request
 
-`ws://foodiz.com`
+`ws://52.50.150.232`
 
 ### Request Parameters
 
