@@ -114,12 +114,12 @@ message   | string   |
 
 ```json
 {
-    "addressLines":{
-        "0":"Dukhnovycha Street, 13А",
-        "1":"Uzhhorod",
-        "2":"Zakarpats'ka oblast",
-        "3":"Ukraine"
-    },
+    "addressLines": [
+       "Dukhnovycha Street, 13А",
+       "Uzhhorod",
+       "Zakarpats'ka oblast",
+       "Ukraine"
+    ],
     "feature":null,
     "admin":"Zakarpats'ka oblast",
     "sub-admin":null,
