@@ -20,12 +20,27 @@ Welcome to the FOODIZ API Documentation
 
 ## (REST) Authenticate via social
 
+> Request:
+
+```json
+{
+    "token": "747812726177660928-EPiElKQDIZRQyzB8mwxWP4JSccWRJIy",
+    "social": "twitter",
+    "secret": "t8BhG4EPkGdrJCiQ1BYh4Qu6Bq3ANMT3n3Ieevw9BgE68",
+    "deviceType": "android",
+    "deviceId": "8d3133382b007cf8",
+    "pushToken": "fsL4lswpYjg:APA91bH5hhTP0JaOAGwpqQysukPrG1I4G1gmvKgmc38ORuhczOOcswkD7Dp43mh4mT7lfhpP4hp6doXCNHT3niwUt15PXJHQiJ_tVS_ChO81nfQGbTu_dH9wUq1qBvwaxA-dnoZkOR2E"
+}
+```
+
 > Success Response:
 
 ```json
 {
-    "token": "ddadu6dwatdfawd8awfae8w9awf12bjklwhfblkvjlanwerkcj",
-    "expiresAt": "2005-08-15T15:52:01+0000"
+  "Authorization": "Bearer a-cmS6Sg41XaO6NzUQRvhlgi4Dt6np1469632525",
+  "expiresAt": "2016-08-10 15:15:25",
+  "userName": "Illia Hapak",
+  "avatarUrl": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
 }
 ```
 
@@ -46,6 +61,9 @@ This endpoint authenticate user and retrieve token for application.
 ### HTTP Request
 
 `POST http://52.50.150.232/api/login`
+ <aside class="notice">
+    Content-type available: application/json and form-data
+ </aside>
 
 ### Request Parameters
 
@@ -56,9 +74,10 @@ secret      | body  | string    | this parameter required only when social = "tw
 deviceId    | body  | string    | unique device ID
 social      | body  | string    | can be: "twitter", "facebook", "google"
 deviceType  | body  | string    | "android", "desktop"(, "ios"?)
+pushToken   | body  | string    | token for google cloud messaging
 
 <aside class="success">
- Remember — all parameters is required, except secret
+ Remember — all parameters is required, except secret and pushToken.
 </aside>
 
 ### Success Response model
@@ -113,28 +132,23 @@ message   | string   |
 > Request 
 
 ```json
-{
-    "addressLines": [
-       "Dukhnovycha Street, 13А",
-       "Uzhhorod",
-       "Zakarpats'ka oblast",
-       "Ukraine"
-    ],
-    "feature":null,
-    "admin":"Zakarpats'ka oblast",
-    "sub-admin":null,
-    "locality":"Uzhgorod",
-    "thoroughfare":"Dukhnovycha Street",
-    "postalCode":null,
-    "countryCode":"UA",
-    "countryName":"Ukraine",
-    "hasLatitude":true,
-    "latitude":48.623831,
-    "hasLongitude":true,
-    "longitude":22.301231,
-    "phone":null,
-    "url":null,
-    "extras":null
+{ 
+	"addressLines": ["Dukhnovycha Street, 13", "Uzhhorod", "Zakarpats'ka oblast", "Ukraine"],
+	"feature": "13",
+	"admin": "Zakarpatska",
+	"subAdmin": "null",
+	"locality": "Uzhhorod",
+	"thoroughfare": "Dukhnovycha Street",
+	"postalCode": "null",
+	"countryCode": "UA",
+	"countryName": "Ukraine",
+	"hasLatitude": true,
+	"latitude": 48.623874,
+	"hasLongitude": true,
+	"longitude": 22.301063,
+	"phone": "null",
+	"url": "null",
+	"extras": "null"
 }
 ```
 
@@ -144,15 +158,15 @@ message   | string   |
 [
   {
     "id": 1,
-    "title": "Uzhgorod chatroom",
+    "title": "Uzhgorod best chat room",
     "country": "Ukraine",
-    "city": "Uzhgorod"
+    "city": "Uzhhorod"
   },
   {
-    "id": 3,
-    "title": "Uzhgorod chatroom 2",
+    "id": 2,
+    "title": "Kiev best chat room",
     "country": "Ukraine",
-    "city": "Uzhgorod"
+    "city": "Kiev"
   }
 ]
 ```
@@ -162,24 +176,28 @@ message   | string   |
 ```json
 {
   "name": "Bad Request",
-  "message": "Missing required parameters: social",
+  "message": "Missing required parameters: longitude",
   "code": 0,
   "status": 400,
   "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
-Get all general chats in your area
+Getting all general chats in your country sorted by distances to your area.
 
 ### HTTP Request
 
-`POST http://52.50.150.232/api/general-chat-room/chats-around`
+`POST http://52.50.150.232/api/chats-around`
 
 ### Request Parameters
 
-Parameter   | Place | Type       | Description
------------ | ----- | ---------- | -----------
-address     | body  | json_array | Address from geocoder
+Parameter   | Place | Type        | Description
+----------- | ----- | ----------  | -----------
+address     | body  | json_object | Address from geocoder
+
+<aside class="success">
+ Remember — required fields of address only latitude and longitude.
+</aside>
 
 ### Success Response model
 
@@ -189,3 +207,5 @@ id          | integer  | id of chat room
 title       | string   | chat title
 country     | string   | chat country
 city        | string   | chat city
+
+# Event
