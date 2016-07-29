@@ -219,6 +219,310 @@ extra        | body  | string      | some extra field
 
  Returns json array of [General Chat Room](#general-chat-room) models.
 
+## (WS) Connect
+
+> Request:
+
+```json
+{
+    "action": "connect", 
+    "token": "zGEUmcAVZbRj6dncTAv6uGnsyrgA_U1468771457", 
+    "chatType": "general", 
+    "chatId": "1"
+}
+```
+
+> Success Response:
+
+```json
+{
+    "success":true,
+    "message":"You have been connected successfully."
+}
+```
+
+> Error Response:
+
+```json
+{
+    "success":false,
+    "message":"Failed to access!"
+}
+```
+
+ Connect to chat.
+ 
+### Request Parameters
+
+Key         | Place | Type        | Description
+----------- | ----- | ----------  | -----------
+action      | body  | string      | action on server side
+token       | body  | string      | access token
+chatType    | body  | string      | can be: "general", "event"
+chatId      | body  | string      | id of chat
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | string   | It signifies successful completion of the request
+message   | string   | message to client
+
+## (WS) Send Message
+
+> Request:
+
+```json
+{
+    "action": "message", 
+    "token": "zGEUmcAVZbRj6dncTAv6uGnsyrgA_U1468771457", 
+    "chatType": "general", 
+    "chatId": "1", 
+    "messageType": "message", 
+    "message": "hello!!", 
+    "key": "1234567"
+}
+```
+
+> Success Response:
+
+```json
+{
+    "userId":"18",
+    "userName":"Vitalik Lunyov",
+    "userAvatar":"http:\/\/52.50.150.232\/?r=files%2Fimages%2FC7CDzSvDzv_1467885361.jpg",
+    "messageId":"37",
+    "messageType":"message",
+    "messageCreated":"2016-07-26 13:52:15",
+    "message":"hello!!",
+    "key": "1234567"
+}
+```
+
+ Send plain message into chat.
+ 
+### Request Parameters
+
+Key         | Place | Type        | Description
+----------- | ----- | ----------  | -----------
+action      | body  | string      | action on server side
+token       | body  | string      | access token
+chatType    | body  | string      | can be: "general", "event"
+chatId      | body  | string      | id of chat
+messageType | body  | string      | can be: "message", "photo", "video", "event"
+message     | body  | string      | message content
+key         | body  | string      | request id
+
+### Success Response model
+
+Key            | Type     | Description
+-------------- | -------- | -----------
+userId         | string   | id of user
+userName       | string   | user name from social networks
+userAvatar     | string   | url of avatar that resides on server
+messageId      | string   | id of message
+messageType    | string   | can be: "message", "photo", "video", "event"
+messageCreated | string   | date of creation (format: ISO 8601)
+message        | string   | message content
+key            | string   | request id
+
+## (WS) Send Photo
+
+> Request:
+
+```json
+{
+    "action": "message",
+    "token": "zGEUmcAVZbRj6dncTAv6uGnsyrgA_U1468771457",
+    "chatType": "general",
+    "chatId": "1",
+    "messageType": "photo",
+    "url": "http://foodiz.local/files/images/lWrdCqYAgA_1467928754.jpg",
+    "key": "1234567"
+}
+```
+
+> Success Response:
+
+```json
+{
+    "userId":"18",
+    "userName":"Vitalik Lunyov",
+    "userAvatar":"http:\/\/52.50.150.232\/?r=files%2Fimages%2FC7CDzSvDzv_1467885361.jpg",
+    "messageId":"38",
+    "messageType":"photo",
+    "messageCreated":"2016-07-26 13:52:58",
+    "url":"http:\/\/foodiz.local\/files\/images\/lWrdCqYAgA_1467928754.jpg",
+    "key": "1234567"
+}
+```
+
+ Send photo into chat.
+ 
+### Request Parameters
+
+Key         | Place | Type        | Description
+----------- | ----- | ----------  | -----------
+action      | body  | string      | action on server side
+token       | body  | string      | access token
+chatType    | body  | string      | can be: "general", "event"
+chatId      | body  | string      | id of chat
+messageType | body  | string      | can be: "message", "photo", "video", "event"
+url         | body  | string      | url of photo
+key         | body  | string      | request id
+
+### Success Response model
+
+Key            | Type     | Description
+-------------- | -------- | -----------
+userId         | string   | id of user
+userName       | string   | user name from social networks
+userAvatar     | string   | url of avatar that resides on server
+messageId      | string   | id of message
+messageType    | string   | can be: "message", "photo", "video", "event"
+messageCreated | string   | date of creation (format: ISO 8601)
+url            | string   | url of photo
+key            | string   | request id
+
+## (WS) Send Video
+
+> Request:
+
+```json
+{
+    "action": "message",
+    "token": "kMMxjsbVtDTEbKIh5a8NW8AnK3cenx1467979106",
+    "chatType": "general",
+    "chatId": "1",
+    "messageType": "video",
+    "url": "https://www.youtube.com/watch?v=op3eNwtSGfM",
+    "key": "1234567"
+}
+```
+
+> Success Response:
+
+```json
+{
+    "userId":"18",
+    "userName":"Vitalik Lunyov",
+    "userAvatar":"http:\/\/52.50.150.232\/?r=files%2Fimages%2FC7CDzSvDzv_1467885361.jpg",
+    "messageId":"39",
+    "messageType":"video",
+    "messageCreated":"2016-07-26 13:55:07",
+    "url":"https:\/\/www.youtube.com\/watch?v=op3eNwtSGfM",
+    "key": "1234567"
+}
+```
+
+ Send video into chat.
+ 
+### Request Parameters
+
+Key         | Place | Type        | Description
+----------- | ----- | ----------  | -----------
+action      | body  | string      | action on server side
+token       | body  | string      | access token
+chatType    | body  | string      | can be: "general", "event"
+chatId      | body  | string      | id of chat
+messageType | body  | string      | can be: "message", "photo", "video", "event"
+url         | body  | string      | url of video
+key         | body  | string      | request id
+
+### Success Response model
+
+Key            | Type     | Description
+-------------- | -------- | -----------
+userId         | string   | id of user
+userName       | string   | user name from social networks
+userAvatar     | string   | url of avatar that resides on server
+messageId      | string   | id of message
+messageType    | string   | can be: "message", "photo", "video", "event"
+messageCreated | string   | date of creation (format: ISO 8601)
+url            | string   | url of video
+key            | string   | request id
+
+## (WS) Send Event
+
+> Request:
+
+```json
+{
+    "action": "message",
+    "token": "kMMxjsbVtDTEbKIh5a8NW8AnK3cenx1467979106",
+    "chatType": "general",
+    "chatId": "1",
+    "messageType": "event",
+    "eventId": "1",
+    "key": "1234567"
+}
+```
+
+> Success Response:
+
+```json
+{
+    "userId":"18",
+    "userName":"Vitalik Lunyov",
+    "userAvatar":"http:\/\/52.50.150.232\/?r=files%2Fimages%2FC7CDzSvDzv_1467885361.jpg",
+    "messageId":"43",
+    "messageType":"event",
+    "messageCreated":"2016-07-26 14:04:06",
+    "event":{
+        "id":"1",
+        "title":"test",
+        "userId":"18",
+        "created":"2016-07-12 20:00:00",
+        "updated":"2016-07-12 20:00:00",
+        "date":"2016-07-15 20:00:00",
+        "status":"active",
+        "coverUrl":null,
+        "places":"0",
+        "description":"",
+        "address":"",
+        "takeWithYou":null,
+        "latitude":0,
+        "longitude":0
+    }, 
+    "key": "1234567"
+}
+```
+
+> Error Response
+
+```json
+{
+    "success":false,
+    "message":"Failed to access!"
+}
+```
+
+ Send video into chat.
+ 
+### Request Parameters
+
+Key         | Place | Type        | Description
+----------- | ----- | ----------  | -----------
+action      | body  | string      | action on server side
+token       | body  | string      | access token
+chatType    | body  | string      | can be: "general", "event"
+chatId      | body  | string      | id of chat
+messageType | body  | string      | can be: "message", "photo", "video", "event"
+eventId     | body  | string      | id of event
+key         | body  | string      | request id
+
+### Success Response model
+
+Key            | Type          | Description
+-------------- | ------------- | -----------
+userId         | string        | id of user
+userName       | string        | user name from social networks
+userAvatar     | string        | url of avatar that resides on server
+messageId      | string        | id of message
+messageType    | string        | can be: "message", "photo", "video", "event"
+messageCreated | string        | date of creation (format: ISO 8601)
+event          | json object   | [Event](#event) model
+key            | string        | request id
 
 # Event section
 
@@ -599,6 +903,81 @@ longitude   | body  | float       | longitude place of event
 
  Returns [Event](#event) model.
 
+# Files
+
+## (REST)Upload Image
+
+> Success Response: 
+
+```json
+{
+  "url": "http://52.50.150.232/files/images/pgV4RyqiCZ_1469803519.png"
+}
+```
+
+Error Response:
+
+```json
+{
+  "name": "Bad Request",
+  "message": "File cannot be blank.",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+ Uploading image and returns url of image
+ 
+### HTTP Request
+ 
+ `GET http://52.50.150.232:4567/api/upload/image`
+ 
+### Request Parameters
+
+Key     | Place   | Type     | Description
+------- | ------- | -------- | -----------
+file    | body    | file     | Allowable extensions: "jpeg", "jpg", "png"
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+url       | string   | url of image that resides on server
+
+## (REST)Upload Video
+
+> Success Response: 
+
+```json
+{
+  "url": "https://www.youtube.com/watch?v=op3eNwtSGfM"
+}
+```
+
+ Uploading video via url.
+ 
+### HTTP Request
+ 
+ `GET http://52.50.150.232:4567/api/upload/video`
+ 
+ <aside class="notice">
+     Content-type available: application/json and form-data
+  </aside>
+ 
+### Request Parameters
+
+Key     | Place   | Type     | Description
+------- | ------- | -------- | -----------
+url     | body    | string   | url of video resource
+hash    | body    | string   | hash of video
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+url       | string   | url of video resource
+
 # Models
 
 ## Event
@@ -715,8 +1094,6 @@ created        | string   | date of creation (format: ISO 8601)
 updated        | string   | date of last modification (format: ISO 8601)
 blocked_till   | string   | date of end block (format: ISO 8601)
 blocked_reason | string   | Explain why user was blocked
- 
-
 
 # User settings and profile
 
