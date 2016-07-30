@@ -559,7 +559,7 @@ Status "canceled" - cancel event and notify all participants about cancel.
 
 ### HTTP Request
  
- `POST http://52.50.150.232:4567/api/event/change-status`
+ `POST http://52.50.150.232/api/event/change-status`
  
 ### Request Parameters
 
@@ -592,7 +592,8 @@ success   | string   | It signifies successful completion of the request
     "coverUrl":"http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "takeWithYou":"Wine, Juice",
     "latitude":22.4342,
-    "longitude":49.432432
+    "longitude":49.432432,
+    "chatRoomId":1
 }
 ```
 
@@ -613,7 +614,8 @@ success   | string   | It signifies successful completion of the request
   "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
   "takeWithYou": "Wine, Juice",
   "latitude": 22.4342,
-  "longitude": 49.432432
+  "longitude": 49.432432,
+  "chatRoomId":1
 }
 ```
 
@@ -645,6 +647,7 @@ coverUrl    | body  | string      | url of cover of event that resides on server
 takeWithYou | body  | string      | count of things which participants should bring on event
 latitude    | body  | float       | latitude place of event
 longitude   | body  | float       | longitude place of event
+chatRoomId  | body  | integer     | id of general chat room
 
 <aside class="notice">
  Remember required only: title, date, coverUrl, places, latitude, longitude.
@@ -674,7 +677,8 @@ longitude   | body  | float       | longitude place of event
     "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
-    "longitude": 49.4324
+    "longitude": 49.4324,
+    "chatRoomId": 1
   },
   "creator": {
     "id": 1,
@@ -761,7 +765,7 @@ Removing participant of event by HOST
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/remove-participant`
+ `GET http://52.50.150.232/api/remove-participant`
  
 ### Request Parameters
 
@@ -799,7 +803,8 @@ success   | string   | It signifies successful completion of the request
   "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
   "takeWithYou": "Wine, Juice",
   "latitude": 22.4342,
-  "longitude": 49.4324
+  "longitude": 49.4324,
+  "chatRoomId": 1
 }
 ```
 
@@ -816,7 +821,7 @@ Repeats previously completed event.
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/repeat-event`
+ `GET http://52.50.150.232/api/repeat-event`
  
 ### Request Parameters
 
@@ -861,7 +866,8 @@ date        | query string | string  | new date of the event (format: ISO 8601)
   "address": "Ukraine, Uzh",
   "takeWithYou": "2 bottles of wine",
   "latitude": 22,
-  "longitude": 49
+  "longitude": 49,
+  "chatRoomId": 1
 }
 ```
 
@@ -931,7 +937,7 @@ Error Response:
  
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/upload/image`
+ `GET http://52.50.150.232/api/upload/image`
  
 ### Request Parameters
 
@@ -959,7 +965,7 @@ url       | string   | url of image that resides on server
  
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/upload/video`
+ `GET http://52.50.150.232/api/upload/video`
  
  <aside class="notice">
      Content-type available: application/json and form-data
@@ -999,7 +1005,8 @@ url       | string   | url of video resource
   "address": "Ukraine, Uzh",
   "takeWithYou": "2 bottles of wine",
   "latitude": 22,
-  "longitude": 49
+  "longitude": 49,
+  "chatRoomId": 1
 }
 ```
 
@@ -1019,6 +1026,7 @@ address     | string   | address place of event
 takeWithYou | string   | count of things which participants should bring on event
 latitude    | float    | latitude place of event
 longitude   | float    | longitude place of event
+chatRoomId  | integer  | id of general chat room
 
 ## General Chat Room
 
@@ -1123,7 +1131,7 @@ Deactivate user account.
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/deactivate-account`
+ `GET http://52.50.150.232/api/deactivate-account`
 
 ### Success Response model
 
@@ -1154,7 +1162,7 @@ Disconnect social network from user account.
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/disconnect-social`
+ `GET http://52.50.150.232/api/disconnect-social`
  
 ### Request Parameters
 
@@ -1191,7 +1199,7 @@ Joining user to event.
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/join-to-event`
+ `GET http://52.50.150.232/api/join-to-event`
  
 ### Request Parameters
 
@@ -1232,7 +1240,7 @@ Remove user from participants of event.
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/leave-event`
+ `GET http://52.50.150.232/api/leave-event`
  
 ### Request Parameters
 
@@ -1266,7 +1274,8 @@ success   | string   | It signifies successful completion of the request
     "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
-    "longitude": 49.4324
+    "longitude": 49.4324,
+    "chatRoomId": 1
   },
   {
     "id": 5,
@@ -1282,7 +1291,8 @@ success   | string   | It signifies successful completion of the request
     "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
-    "longitude": 49.4324
+    "longitude": 49.4324,
+    "chatRoomId": 1
   }
 ]
 ```
@@ -1303,7 +1313,72 @@ Returns all finished or canceled events created by user.
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/view-archive-events`
+ `GET http://52.50.150.232/api/view-archive-events`
+
+### Success Response 
+
+ Returns json array of [Event](#event) models.
+
+## (REST) View member events
+
+> Success Response
+
+```json
+[
+  {
+    "id": 4,
+    "title": "Uzhgorod first event",
+    "userId": 1,
+    "created": "2016-07-26 11:45:07",
+    "updated": "2016-07-26 11:45:07",
+    "date": "2016-08-07 16:44:00",
+    "status": "active",
+    "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
+    "places": 8,
+    "description": "Test description",
+    "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
+    "takeWithYou": "Wine, Juice",
+    "latitude": 22.4342,
+    "longitude": 49.4324,
+    "chatRoomId": 1
+  },
+  {
+    "id": 5,
+    "title": "Uzhgorod first event",
+    "userId": 1,
+    "created": "2016-07-28 08:39:13",
+    "updated": "2016-07-28 08:39:13",
+    "date": "2016-08-07 16:44:00",
+    "status": "active",
+    "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
+    "places": 8,
+    "description": "Test description",
+    "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
+    "takeWithYou": "Wine, Juice",
+    "latitude": 22.4342,
+    "longitude": 49.4324,
+    "chatRoomId": 1
+  }
+]
+```
+
+> Error Response
+
+```json
+{
+  "name": "Unauthorized",
+  "message": "You are requesting with an invalid credential.",
+  "code": 0,
+  "status": 401,
+  "type": "yii\\web\\UnauthorizedHttpException"
+}
+```
+
+Returns all active events in which the user is participant.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/view-member-events`
 
 ### Success Response 
 
@@ -1346,7 +1421,7 @@ Returns all push notifications.
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/view-notifications-list`
+ `GET http://52.50.150.232/api/view-notifications-list`
 
 ### Success Response 
 
@@ -1372,7 +1447,8 @@ Returns all push notifications.
     "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
-    "longitude": 49.4324
+    "longitude": 49.4324,
+    "chatRoomId": 1
   },
   {
     "id": 5,
@@ -1388,7 +1464,8 @@ Returns all push notifications.
     "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
-    "longitude": 49.4324
+    "longitude": 49.4324,
+    "chatRoomId": 1
   }
 ]
 ```
@@ -1409,12 +1486,12 @@ Returns all active events created by user.
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/view-own-events`
+ `GET http://52.50.150.232/api/view-own-events`
 
 ### Success Response 
 
  Returns json array of [Event](#event) models.
- 
+
 ## (REST) View upcoming events
 
 > Success Response
@@ -1435,7 +1512,8 @@ Returns all active events created by user.
     "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
-    "longitude": 49.4324
+    "longitude": 49.4324,
+    "chatRoomId": 1
   },
   {
     "id": 5,
@@ -1451,7 +1529,8 @@ Returns all active events created by user.
     "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
-    "longitude": 49.4324
+    "longitude": 49.4324,
+    "chatRoomId": 1
   }
 ]
 ```
@@ -1460,19 +1539,22 @@ Returns all active events created by user.
 
 ```json
 {
-  "name": "Unauthorized",
-  "message": "You are requesting with an invalid credential.",
-  "code": 0,
-  "status": 401,
-  "type": "yii\\web\\UnauthorizedHttpException"
+  "success": false,
+  "error": "Invalid chat room id"
 }
 ```
 
-Returns all active events in which the user is participant.
+Returns all active events in requested area.
 
 ### HTTP Request
  
- `GET http://52.50.150.232:4567/api/view-upcoming-events`
+ `GET http://52.50.150.232/api/view-upcoming-events`
+ 
+### Request Parameters
+
+Key         | Place        | Type    | Description
+----------- | ------------ | ------- | -----------
+chatRoomId  | query string | integer | id of general chat room
 
 ### Success Response 
 
