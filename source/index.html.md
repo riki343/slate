@@ -593,7 +593,8 @@ success   | string   | It signifies successful completion of the request
     "takeWithYou":"Wine, Juice",
     "latitude":22.4342,
     "longitude":49.432432,
-    "chatRoomId":1
+    "chatRoomId":1,
+    "reservedPlaces": 0
 }
 ```
 
@@ -678,7 +679,8 @@ chatRoomId  | body  | integer     | id of general chat room
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1
+    "chatRoomId": 1,
+    "reservedPlaces": 0
   },
   "creator": {
     "id": 1,
@@ -804,7 +806,8 @@ success   | string   | It signifies successful completion of the request
   "takeWithYou": "Wine, Juice",
   "latitude": 22.4342,
   "longitude": 49.4324,
-  "chatRoomId": 1
+  "chatRoomId": 1,
+  "reservedPlaces": 0
 }
 ```
 
@@ -867,7 +870,8 @@ date        | query string | string  | new date of the event (format: ISO 8601)
   "takeWithYou": "2 bottles of wine",
   "latitude": 22,
   "longitude": 49,
-  "chatRoomId": 1
+  "chatRoomId": 1,
+  "reservedPlaces": 0
 }
 ```
 
@@ -1277,7 +1281,8 @@ success   | string   | It signifies successful completion of the request
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1
+    "chatRoomId": 1,
+    "reservedPlaces": 0
   },
   {
     "id": 5,
@@ -1294,7 +1299,8 @@ success   | string   | It signifies successful completion of the request
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1
+    "chatRoomId": 1,
+    "reservedPlaces": 0
   }
 ]
 ```
@@ -1342,7 +1348,8 @@ Returns all finished or canceled events created by user.
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1
+    "chatRoomId": 1,
+    "reservedPlaces": 0
   },
   {
     "id": 5,
@@ -1359,7 +1366,8 @@ Returns all finished or canceled events created by user.
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1
+    "chatRoomId": 1,
+    "reservedPlaces": 0
   }
 ]
 ```
@@ -1450,7 +1458,8 @@ Returns all push notifications.
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1
+    "chatRoomId": 1,
+    "reservedPlaces": 0
   },
   {
     "id": 5,
@@ -1467,7 +1476,8 @@ Returns all push notifications.
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1
+    "chatRoomId": 1,
+    "reservedPlaces": 0
   }
 ]
 ```
@@ -1515,7 +1525,8 @@ Returns all active events created by user.
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1
+    "chatRoomId": 1,
+    "reservedPlaces": 0
   },
   {
     "id": 5,
@@ -1532,7 +1543,8 @@ Returns all active events created by user.
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1
+    "chatRoomId": 1,
+    "reservedPlaces": 0
   }
 ]
 ```
