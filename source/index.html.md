@@ -594,7 +594,9 @@ success   | string   | It signifies successful completion of the request
     "latitude":22.4342,
     "longitude":49.432432,
     "chatRoomId":1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
 }
 ```
 
@@ -680,7 +682,9 @@ chatRoomId  | body  | integer     | id of general chat room
     "latitude": 22.4342,
     "longitude": 49.4324,
     "chatRoomId": 1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   },
   "creator": {
     "id": 1,
@@ -807,7 +811,9 @@ success   | string   | It signifies successful completion of the request
   "latitude": 22.4342,
   "longitude": 49.4324,
   "chatRoomId": 1,
-  "reservedPlaces": 0
+  "reservedPlaces": 0,
+  "hostUsername": "Illia Hapak",
+  "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
 }
 ```
 
@@ -871,7 +877,9 @@ date        | query string | string  | new date of the event (format: ISO 8601)
   "latitude": 22,
   "longitude": 49,
   "chatRoomId": 1,
-  "reservedPlaces": 0
+  "reservedPlaces": 0,
+  "hostUsername": "Illia Hapak",
+  "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
 }
 ```
 
@@ -1011,7 +1019,9 @@ url       | string   | url of video resource
   "latitude": 22,
   "longitude": 49,
   "chatRoomId": 1,
-  "reservedPlaces": 0
+  "reservedPlaces": 0,
+  "hostUsername": "Illia Hapak",
+  "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
 }
 ```
 
@@ -1033,6 +1043,8 @@ latitude       | float    | latitude place of event
 longitude      | float    | longitude place of event
 chatRoomId     | integer  | id of general chat room
 reservedPlaces | integer  | count of participants
+hostUsername   | string   | username of creator
+hostAvatar     | string   | url of host avatar
 
 ## General Chat Room
 
@@ -1282,7 +1294,9 @@ success   | string   | It signifies successful completion of the request
     "latitude": 22.4342,
     "longitude": 49.4324,
     "chatRoomId": 1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   },
   {
     "id": 5,
@@ -1300,7 +1314,9 @@ success   | string   | It signifies successful completion of the request
     "latitude": 22.4342,
     "longitude": 49.4324,
     "chatRoomId": 1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   }
 ]
 ```
@@ -1349,7 +1365,9 @@ Returns all finished or canceled events created by user.
     "latitude": 22.4342,
     "longitude": 49.4324,
     "chatRoomId": 1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   },
   {
     "id": 5,
@@ -1367,7 +1385,9 @@ Returns all finished or canceled events created by user.
     "latitude": 22.4342,
     "longitude": 49.4324,
     "chatRoomId": 1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   }
 ]
 ```
@@ -1459,7 +1479,9 @@ Returns all push notifications.
     "latitude": 22.4342,
     "longitude": 49.4324,
     "chatRoomId": 1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   },
   {
     "id": 5,
@@ -1477,7 +1499,9 @@ Returns all push notifications.
     "latitude": 22.4342,
     "longitude": 49.4324,
     "chatRoomId": 1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   }
 ]
 ```
@@ -1526,7 +1550,9 @@ Returns all active events created by user.
     "latitude": 22.4342,
     "longitude": 49.4324,
     "chatRoomId": 1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   },
   {
     "id": 5,
@@ -1544,7 +1570,9 @@ Returns all active events created by user.
     "latitude": 22.4342,
     "longitude": 49.4324,
     "chatRoomId": 1,
-    "reservedPlaces": 0
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   }
 ]
 ```
