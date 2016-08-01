@@ -1006,27 +1006,29 @@ url       | string   | url of video resource
   "takeWithYou": "2 bottles of wine",
   "latitude": 22,
   "longitude": 49,
-  "chatRoomId": 1
+  "chatRoomId": 1,
+  "reservedPlaces": 0
 }
 ```
 
-Key         | Type     | Description
------------ | -------- | -----------
-id          | integer  | id of event
-title       | string   | title of event
-userId      | integer  | id of creator of event
-created     | string   | date of creation (format: ISO 8601)
-updated     | string   | date of last modification (format: ISO 8601)
-date        | string   | date of event (format: ISO 8601)
-status      | string   | status of event
-coverUrl    | string   | url of cover of event that resides on server
-places      | integer  | max count of people on event
-description | string   | short description about the event
-address     | string   | address place of event
-takeWithYou | string   | count of things which participants should bring on event
-latitude    | float    | latitude place of event
-longitude   | float    | longitude place of event
-chatRoomId  | integer  | id of general chat room
+Key            | Type     | Description
+-------------- | -------- | -----------
+id             | integer  | id of event
+title          | string   | title of event
+userId         | integer  | id of creator of event
+created        | string   | date of creation (format: ISO 8601)
+updated        | string   | date of last modification (format: ISO 8601)
+date           | string   | date of event (format: ISO 8601)
+status         | string   | status of event
+coverUrl       | string   | url of cover of event that resides on server
+places         | integer  | max count of people on event
+description    | string   | short description about the event
+address        | string   | address place of event
+takeWithYou    | string   | count of things which participants should bring on event
+latitude       | float    | latitude place of event
+longitude      | float    | longitude place of event
+chatRoomId     | integer  | id of general chat room
+reservedPlaces | integer  | count of participants
 
 ## General Chat Room
 
