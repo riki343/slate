@@ -1638,6 +1638,13 @@ Returns all finished or canceled events created by user.
 ### HTTP Request
  
  `GET http://52.50.150.232/api/view-archive-events`
+ 
+### Request Parameters
+
+Key  | Place        | Type    | Description
+---- | ------------ | ------- | -----------
+page | query string | integer | number of page
+size | query string | integer | size of page
 
 ### Success Response 
 
@@ -1709,6 +1716,13 @@ Returns all active events in which the user is participant.
 ### HTTP Request
  
  `GET http://52.50.150.232/api/view-member-events`
+
+### Request Parameters
+
+Key  | Place        | Type    | Description
+---- | ------------ | ------- | -----------
+page | query string | integer | number of page
+size | query string | integer | size of page
 
 ### Success Response 
 
@@ -1824,6 +1838,13 @@ Returns all active events created by user.
  
  `GET http://52.50.150.232/api/view-own-events`
 
+### Request Parameters
+
+Key  | Place        | Type    | Description
+---- | ------------ | ------- | -----------
+page | query string | integer | number of page
+size | query string | integer | size of page
+
 ### Success Response 
 
  Returns json array of [Event](#event) models.
@@ -1897,6 +1918,8 @@ Returns all active events in requested area.
 Key         | Place        | Type    | Description
 ----------- | ------------ | ------- | -----------
 chatRoomId  | query string | integer | id of general chat room
+page        | query string | integer | number of page
+size        | query string | integer | size of page
 
 ### Success Response 
 
