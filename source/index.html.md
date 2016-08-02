@@ -218,6 +218,210 @@ extra        | body  | string      | some extra field
 ### Success Response
 
  Returns json array of [General Chat Room](#general-chat-room) models.
+ 
+## (REST)Last messages: event chat room
+
+> Success Response: 
+
+```json
+[
+  {
+    "isOwner": false,
+    "userId": 3,
+    "userName": "Eduard Chory",
+    "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+    "messageId": 9,
+    "messageType": "message",
+    "messageCreated": "2016-07-27 16:46:05",
+    "message": "gtv"
+  },
+  {
+    "isOwner": false,
+    "userId": 3,
+    "userName": "Eduard Chory",
+    "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+    "messageId": 10,
+    "messageType": "message",
+    "messageCreated": "2016-07-27 16:48:21",
+    "message": "ggy"
+  }
+]
+```
+
+ Loads last messages from event chat room.
+ 
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/message/event-last`
+ 
+### Request Parameters
+
+Key           | Place        | Type              | Description
+------------- | ------------ | ----------------- | -----------
+chatId        | query string | integer           | id of event chat room
+count         | query string | integer(optional) | count of messages for load, 20 by default
+lastMessageId | query string | integer(optional) | id from which messages will be loaded, null by default
+type          | query string | string(optional)  | type of messages, null by default
+
+### Success Response
+ 
+ Returns array of [Event Chat Room Message](#event-chat-room-message) models.
+ 
+## (REST)Last messages: general chat room
+
+> Success Response: 
+
+```json
+[
+  {
+    "isOwner": false,
+    "userId": 3,
+    "userName": "Eduard Chory",
+    "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+    "messageId": 9,
+    "messageType": "message",
+    "messageCreated": "2016-07-27 16:46:05",
+    "message": "gtv"
+  },
+  {
+    "isOwner": false,
+    "userId": 3,
+    "userName": "Eduard Chory",
+    "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+    "messageId": 10,
+    "messageType": "message",
+    "messageCreated": "2016-07-27 16:48:21",
+    "message": "ggy"
+  }
+]
+```
+
+ Loads last messages from general chat room.
+ 
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/message/general-last`
+ 
+### Request Parameters
+
+Key           | Place        | Type              | Description
+------------- | ------------ | ----------------- | -----------
+chatId        | query string | integer           | id of general chat room
+count         | query string | integer(optional) | count of messages for load, 20 by default
+lastMessageId | query string | integer(optional) | id from which messages will be loaded, null by default
+type          | query string | string(optional)  | type of messages, null by default
+
+### Success Response
+ 
+ Returns array of [General Chat Room Message](#general-chat-room-message) models.
+ 
+## (REST)Update event chat room logo
+
+> Request:
+
+```json
+{ 
+	"eventId": 1,
+	"url": "http://52.50.150.232/files/images/pgV4RyqiCZ_1469803519.png"
+}
+```
+
+> Success Response: 
+
+```json
+{
+  "url": "http://52.50.150.232/files/images/pgV4RyqiCZ_1469803519.png"
+}
+```
+
+> Error Response:
+
+```json
+{
+  "name": "Bad Request",
+  "message": "Invalid Url!",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+ Changes logo of event chat room.
+ 
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/event-room/update-logo`
+ 
+ <aside class="notice">
+      Content-type available: application/json and form-data.
+ </aside>
+ 
+### Request Parameters
+
+Key     | Place   | Type     | Description
+------- | ------- | -------- | -----------
+eventId | body    | string   | id of event
+url     | body    | string   | url of new logo that resides on server
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+url       | string   | url of image that resides on server
+
+## (REST)Update event chat room title
+
+> Request:
+
+```json
+{ 
+	"eventId": 1,
+	"title": "New title"
+}
+```
+
+> Success Response: 
+
+```json
+{
+  "success": true
+}
+```
+
+> Error Response:
+
+```json
+{
+  "name": "Bad Request",
+  "message": "You are not owner of this Event!",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+ Changes title of event chat room.
+ 
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/event-room/update-title`
+ 
+ <aside class="notice">
+      Content-type available: application/json and form-data.
+ </aside>
+ 
+### Request Parameters
+
+Key     | Place   | Type     | Description
+------- | ------- | -------- | -----------
+eventId | body    | string   | id of event
+title   | body    | string   | new title for event chat room
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
 
 ## (WS) Connect
 
@@ -265,7 +469,7 @@ chatId      | body  | string      | id of chat
 
 Key       | Type     | Description
 --------- | -------- | -----------
-success   | string   | It signifies successful completion of the request
+success   | bool     | It signifies successful completion of the request
 message   | string   | message to client
 
 ## (WS) Send Message
@@ -554,7 +758,7 @@ key            | string        | request id
 }
 ```
 
-Change status of event.   
+Changes status of event.   
 Status "canceled" - cancel event and notify all participants about cancel.
 
 ### HTTP Request
@@ -576,7 +780,7 @@ status      | body  | string      | new status of event, can be: "active", "canc
 
 Key       | Type     | Description
 --------- | -------- | -----------
-success   | string   | It signifies successful completion of the request
+success   | bool     | It signifies successful completion of the request
 
 ## (REST) Create event
 
@@ -659,6 +863,46 @@ chatRoomId  | body  | integer     | id of general chat room
 ### Success Response 
 
  Returns [Event](#event) model.
+
+## (REST) Created events in room
+
+> Success Response
+
+```json
+{
+  "count": 6
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Bad Request",
+  "message": "Invalid Chat ID!",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+Returns all active events in requested general chat room.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/events-created-in-room`
+ 
+### Request Parameters
+
+Key         | Place        | Type       | Description
+----------- | ------------ | ---------- | -----------
+chatId      | query string | integer    | id of general chat room
+
+### Success Response model
+
+Key   | Type    | Description
+------| --------| -----------
+count | integer | count of active events in requested general chat room
 
 ## (REST) Get event page
 
@@ -788,7 +1032,7 @@ userId      | query string | integer | id of user
 
 Key       | Type     | Description
 --------- | -------- | -----------
-success   | string   | It signifies successful completion of the request
+success   | bool     | It signifies successful completion of the request
 
 ## (REST) Repeat event
 
@@ -981,7 +1225,7 @@ url       | string   | url of image that resides on server
  
  <aside class="notice">
      Content-type available: application/json and form-data
-  </aside>
+ </aside>
  
 ### Request Parameters
 
@@ -1046,6 +1290,34 @@ reservedPlaces | integer  | count of participants
 hostUsername   | string   | username of creator
 hostAvatar     | string   | url of host avatar
 
+## Event Chat Room Message
+
+> JSON:
+
+```json
+{
+    "isOwner": false,
+    "userId": 3,
+    "userName": "Eduard Chory",
+    "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+    "messageId": 9,
+    "messageType": "message",
+    "messageCreated": "2016-07-27 16:46:05",
+    "message": "gtv"
+}
+```
+
+Key            | Type               | Description
+-------------- | ------------------ | -----------
+isOwner        | bool               | defines that current user is author of the message
+userId         | integer            | id of user
+userName       | string             | username taken from social
+userAvatar     | string             | url of avatar that resides on server
+messageId      | integer            | id of message
+messageType    | string             | can be: "message", "photo", "video"
+messageCreated | string             | date of creation
+message        | string/json object | content of message
+
 ## General Chat Room
 
 > JSON:
@@ -1056,7 +1328,7 @@ hostAvatar     | string   | url of host avatar
     "title": "Kiev best chat room",
     "country": "Ukraine",
     "city": "Kiev"
-  }
+}
 ```
 
 Key         | Type     | Description
@@ -1065,6 +1337,34 @@ id          | integer  | id of chat room
 title       | string   | chat title
 country     | string   | chat country
 city        | string   | chat city
+
+## General Chat Room Message
+
+> JSON:
+
+```json
+{
+    "isOwner": false,
+    "userId": 3,
+    "userName": "Eduard Chory",
+    "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+    "messageId": 9,
+    "messageType": "message",
+    "messageCreated": "2016-07-27 16:46:05",
+    "message": "gtv"
+}
+```
+
+Key            | Type               | Description
+-------------- | ------------------ | -----------
+isOwner        | bool               | defines that current user is author of the message
+userId         | integer            | id of user
+userName       | string             | username taken from social
+userAvatar     | string             | url of avatar that resides on server
+messageId      | integer            | id of message
+messageType    | string             | can be: "message", "photo", "video", "event", if type "event" then message will contain [Event](#event) model
+messageCreated | string             | date of creation
+message        | string/json object | content of message
 
 ## Push Notification
 
@@ -1076,7 +1376,7 @@ city        | string   | chat city
     "message": "By the event joined by Illia Hapak",
     "action": "Join to event.",
     "created": "2016-07-20 14:27:42"
-  }
+}
 ```
 
 Key         | Type     | Description
@@ -1105,7 +1405,7 @@ created     | string   | date of creation (format: ISO 8601)
       "blocked_reason": null,
       "online": 0,
       "active": 1
-    }
+}
 ```
 
 Key            | Type     | Description
@@ -1155,7 +1455,7 @@ Deactivate user account.
 
 Key       | Type     | Description
 --------- | -------- | -----------
-success   | string   | It signifies successful completion of the request
+success   | bool     | It signifies successful completion of the request
 
 ## (REST) Disconnect social
 
@@ -1192,7 +1492,7 @@ social      | query string | string  | can be: "twitter", "facebook", "google"
 
 Key       | Type     | Description
 --------- | -------- | -----------
-success   | string   | It signifies successful completion of the request
+success   | bool     | It signifies successful completion of the request
 
 ## (REST) Join to event
 
@@ -1233,7 +1533,7 @@ id          | query string | integer | id of event
 
 Key       | Type     | Description
 --------- | -------- | -----------
-success   | string   | It signifies successful completion of the request
+success   | bool     | It signifies successful completion of the request
 
 ## (REST) Leave event
 
@@ -1270,7 +1570,7 @@ id          | query string | integer | id of event
 
 Key       | Type     | Description
 --------- | -------- | -----------
-success   | string   | It signifies successful completion of the request
+success   | bool     | It signifies successful completion of the request
 
 ## (REST) View archive events
 
