@@ -1065,8 +1065,11 @@ success   | bool     | It signifies successful completion of the request
 
 ```json
 {
-  "success": false,
-  "error": "Event not exist or not finished"
+  "name": "Bad Request",
+  "message": "Invalid Event ID!",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
