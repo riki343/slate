@@ -800,7 +800,8 @@ success   | bool     | It signifies successful completion of the request
     "chatRoomId":1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
 }
 ```
 
@@ -904,6 +905,57 @@ Key   | Type    | Description
 ------| --------| -----------
 count | integer | count of active events in requested general chat room
 
+## (REST) Get comments
+
+> Success Response
+
+```json
+[
+  {
+    "id": 1,
+    "message": "Test comment",
+    "created": "2016-08-04 13:26:34",
+    "username": "Illia Hapak",
+    "userAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+  },
+  {
+    "id": 2,
+    "message": "Test comment",
+    "created": "2016-08-04 13:27:34",
+    "username": "Illia Hapak",
+    "userAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+  }
+]
+```
+
+> Error Response
+
+```json
+{
+  "name": "Bad Request",
+  "message": "Invalid Event ID!",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+Returns all posted comments for selected event.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/event-comments`
+ 
+### Request Parameters
+
+Key         | Place        | Type       | Description
+----------- | -----        | ---------- | -----------
+eventId     | query string | integer    | id of event
+
+### Success Response
+
+ Returns json array of [Comment](#comment) models.
+
 ## (REST) Get event page
 
 > Success Response
@@ -928,7 +980,8 @@ count | integer | count of active events in requested general chat room
     "chatRoomId": 1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
   },
   "creator": {
     "id": 1,
@@ -991,6 +1044,56 @@ Key          | Type        | Description
 event        | json object | [Event](#event) model
 creator      | json object | [User](#user) model
 participants | json array  | [User](#user) models
+
+## (REST) Post comment
+
+> Request:
+
+```json
+{
+    "eventId":18,
+    "message":"Test comment"
+}
+```
+
+> Success Response
+
+```json
+{
+  "success": true
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Bad Request",
+  "message": "Message should contain at most 1,024 characters.",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+Posts a new comment about event. 
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/post-comment`
+ 
+### Request Parameters
+
+Key         | Place | Type    | Description
+----------- | ----- | ------- | -----------
+eventId     | body  | integer | id of event
+message     | body  | string  | comment content
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
 
 ## (REST) Remove participant
 
@@ -1057,7 +1160,8 @@ success   | bool     | It signifies successful completion of the request
   "chatRoomId": 1,
   "reservedPlaces": 0,
   "hostUsername": "Illia Hapak",
-  "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+  "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+  "rating": 3.5
 }
 ```
 
@@ -1081,8 +1185,8 @@ Repeats previously completed event.
  
 ### Request Parameters
 
-Key         | Place | Type        | Description
------------ | ----- | ----------  | -----------
+Key         | Place        | Type    | Description
+----------- | ------------ | ------- | -----------
 eventId     | query string | integer | id of event
 date        | query string | string  | new date of the event (format: ISO 8601)
 
@@ -1093,6 +1197,50 @@ date        | query string | string  | new date of the event (format: ISO 8601)
 ### Success Response
 
  Returns [Event](#event) model.
+
+## (REST) Set event rating
+
+> Success Response
+
+```json
+{
+  "success": true,
+  "rating": 3.5
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Bad Request",
+  "message": "Rating must be no greater than 5.",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+Adds new rating for event.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/set-event-rating`
+ 
+### Request Parameters
+
+Key         | Place        | Type    | Description
+----------- | ------------ | ------- | -----------
+eventId     | query string | integer | id of event
+rating      | query string | integer | new rating value
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
+rating    | float    | current event rating
+
 
 ## (REST) Update event
 
@@ -1126,7 +1274,8 @@ date        | query string | string  | new date of the event (format: ISO 8601)
   "chatRoomId": 1,
   "reservedPlaces": 0,
   "hostUsername": "Illia Hapak",
-  "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+  "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+  "rating": 3.5
 }
 ```
 
@@ -1245,6 +1394,29 @@ url       | string   | url of video resource
 
 # Models
 
+## Comment
+
+> JSON:
+
+```json
+{
+    "id": 1,
+    "message": "Test comment",
+    "created": "2016-08-04 13:26:34",
+    "username": "Illia Hapak",
+    "userAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+}
+```
+
+Key            | Type     | Description
+-------------- | -------- | -----------
+id             | integer  | id of comment
+message        | string   | content of comment
+created        | string   | date of creation (format: ISO 8601)
+username       | string   | username of author
+userAvatar     | string   | url of author avatar
+
+
 ## Event
 
 > JSON:
@@ -1268,7 +1440,8 @@ url       | string   | url of video resource
   "chatRoomId": 1,
   "reservedPlaces": 0,
   "hostUsername": "Illia Hapak",
-  "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+  "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+  "rating": 3.5
 }
 ```
 
@@ -1292,6 +1465,7 @@ chatRoomId     | integer  | id of general chat room
 reservedPlaces | integer  | count of participants
 hostUsername   | string   | username of creator
 hostAvatar     | string   | url of host avatar
+rating         | float    | rating of event
 
 ## Event Chat Room Message
 
@@ -1599,7 +1773,8 @@ success   | bool     | It signifies successful completion of the request
     "chatRoomId": 1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
   },
   {
     "id": 5,
@@ -1619,7 +1794,8 @@ success   | bool     | It signifies successful completion of the request
     "chatRoomId": 1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
   }
 ]
 ```
@@ -1677,7 +1853,8 @@ size | query string | integer | size of page
     "chatRoomId": 1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
   },
   {
     "id": 5,
@@ -1697,7 +1874,8 @@ size | query string | integer | size of page
     "chatRoomId": 1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
   }
 ]
 ```
@@ -1798,7 +1976,8 @@ Returns all push notifications.
     "chatRoomId": 1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
   },
   {
     "id": 5,
@@ -1818,7 +1997,8 @@ Returns all push notifications.
     "chatRoomId": 1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
   }
 ]
 ```
@@ -1876,7 +2056,8 @@ size | query string | integer | size of page
     "chatRoomId": 1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
   },
   {
     "id": 5,
@@ -1896,7 +2077,8 @@ size | query string | integer | size of page
     "chatRoomId": 1,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
-    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
   }
 ]
 ```
