@@ -40,7 +40,8 @@ Welcome to the FOODIZ API Documentation
   "Authorization": "Bearer a-cmS6Sg41XaO6NzUQRvhlgi4Dt6np1469632525",
   "expiresAt": "2016-08-10 15:15:25",
   "userName": "Illia Hapak",
-  "avatarUrl": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
+  "avatarUrl": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+  "id": 1
 }
 ```
 
@@ -83,10 +84,13 @@ pushToken   | body  | string    | token for google cloud messaging
 
 ### Success Response model
 
-Key       | Type     | Description
---------- | -------- | -----------
-token     | string   | token for mobile app
-expiresAt | string   | token expiration date (format: ISO 8601)
+Key           | Type     | Description
+------------- | -------- | -----------
+Authorization | string   | token for mobile app
+expiresAt     | string   | token expiration date (format: ISO 8601)
+username      | string   | user name from social networks
+avatarUrl     | string   | url of avatar that resides on server
+id            | integer  | id of user
 
 
 ## (REST) Logout
