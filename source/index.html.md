@@ -318,6 +318,66 @@ type          | query string | string(optional)  | type of messages, null by def
 ### Success Response
  
  Returns array of [General Chat Room Message](#general-chat-room-message) models.
+
+## (REST) Send report
+
+> Request:
+
+```json
+{
+    "messageType": "general_chat",
+    "messageId": 4,
+    "chatId": 1,
+    "reportedType": "other",
+    "reason": "Some reason"
+}
+```
+
+> Success Response
+
+```json
+{
+  "success": true
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Bad Request",
+  "message": "Missing required parameters: reason",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+Sends report to moderator.
+
+### HTTP Request
+ 
+ `POST http://52.50.150.232/api/send-report`
+ 
+### Request Parameters
+
+Key         | Place | Type        | Description
+----------- | ----- | ----------  | -----------
+messageType | body  | string      | define type of chat room, can be: "general_chat", "event_chat"
+messageId   | body  | integer     | id of message
+chatId      | body  | integer     | id of chat
+reportedType| body  | string      | type of report message, can be: "cheater", "aggressive", "other"
+reason      | body  | string      | description of report message
+
+<aside class="notice">
+ Remember all parameters required, except reason if reportedType not "other"
+</aside>
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
  
 ## (REST)Update event chat room logo
 
