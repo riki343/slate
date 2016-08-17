@@ -329,6 +329,7 @@ type          | query string | string(optional)  | type of messages, null by def
     "messageId": 4,
     "chatId": 1,
     "reportedType": "other",
+    "messageAuthorId": 7,
     "reason": "Some reason"
 }
 ```
@@ -361,13 +362,14 @@ Sends report to moderator.
  
 ### Request Parameters
 
-Key         | Place | Type        | Description
------------ | ----- | ----------  | -----------
-messageType | body  | string      | define type of chat room, can be: "general_chat", "event_chat"
-messageId   | body  | integer     | id of message
-chatId      | body  | integer     | id of chat
-reportedType| body  | string      | type of report message, can be: "cheater", "aggressive", "other"
-reason      | body  | string      | description of report message
+Key             | Place | Type        | Description
+--------------- | ----- | ----------  | -----------
+messageType     | body  | string      | define type of chat room, can be: "general_chat", "event_chat"
+messageId       | body  | integer     | id of message
+chatId          | body  | integer     | id of chat
+reportedType    | body  | string      | type of report message, can be: "cheater", "aggressive", "other"
+messageAuthorId | body  | integer     | id of author of message
+reason          | body  | string      | description of report message
 
 <aside class="notice">
  Remember all parameters required, except reason if reportedType not "other"
@@ -1886,8 +1888,8 @@ Returns all finished or canceled events created by user.
 
 Key  | Place        | Type    | Description
 ---- | ------------ | ------- | -----------
-page | query string | integer | number of page
-size | query string | integer | size of page
+page | query string | integer | number of page (optional), by default = 1
+size | query string | integer | size of page (optional), by default = 10
 
 ### Success Response 
 
@@ -1966,8 +1968,8 @@ Returns all active events in which the user is participant.
 
 Key  | Place        | Type    | Description
 ---- | ------------ | ------- | -----------
-page | query string | integer | number of page
-size | query string | integer | size of page
+page | query string | integer | number of page (optional), by default = 1
+size | query string | integer | size of page (optional), by default = 10
 
 ### Success Response 
 
@@ -2011,6 +2013,13 @@ Returns all push notifications.
 ### HTTP Request
  
  `GET http://52.50.150.232/api/view-notifications-list`
+ 
+### Request Parameters
+
+Key  | Place        | Type    | Description
+---- | ------------ | ------- | -----------
+page | query string | integer | number of page (optional), by default = 1
+size | query string | integer | size of page (optional), by default = 10
 
 ### Success Response 
 
@@ -2089,8 +2098,8 @@ Returns all active events created by user.
 
 Key  | Place        | Type    | Description
 ---- | ------------ | ------- | -----------
-page | query string | integer | number of page
-size | query string | integer | size of page
+page | query string | integer | number of page (optional), by default = 1 
+size | query string | integer | size of page (optional), by default = 10
 
 ### Success Response 
 
@@ -2167,8 +2176,8 @@ Returns all active events in requested area.
 Key         | Place        | Type    | Description
 ----------- | ------------ | ------- | -----------
 chatRoomId  | query string | integer | id of general chat room
-page        | query string | integer | number of page
-size        | query string | integer | size of page
+page        | query string | integer | number of page (optional), by default = 1
+size        | query string | integer | size of page (optional), by default = 10
 
 ### Success Response 
 
