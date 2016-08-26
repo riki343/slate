@@ -1146,7 +1146,7 @@ Posts a new comment about event.
 
 ### HTTP Request
  
- `GET http://52.50.150.232/api/post-comment`
+ `POST http://52.50.150.232/api/post-comment`
  
 ### Request Parameters
 
