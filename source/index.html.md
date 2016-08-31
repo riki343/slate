@@ -38,7 +38,7 @@ Welcome to the FOODIZ API Documentation
 ```json
 {
   "Authorization": "Bearer a-cmS6Sg41XaO6NzUQRvhlgi4Dt6np1469632525",
-  "expiresAt": "2016-08-10 15:15:25",
+  "expiresAt": "2016-08-31T13:31:32+00:00",
   "userName": "Illia Hapak",
   "avatarUrl": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
   "id": 1
@@ -234,7 +234,7 @@ extra        | body  | string      | some extra field
     "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
     "messageId": 9,
     "messageType": "message",
-    "messageCreated": "2016-07-27 16:46:05",
+    "messageCreated": "2016-08-31T13:31:32+00:00",
     "message": "gtv"
   },
   {
@@ -244,7 +244,7 @@ extra        | body  | string      | some extra field
     "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
     "messageId": 10,
     "messageType": "message",
-    "messageCreated": "2016-07-27 16:48:21",
+    "messageCreated": "2016-08-31T13:31:32+00:00",
     "message": "ggy"
   }
 ]
@@ -282,7 +282,7 @@ type          | query string | string(optional)  | type of messages, null by def
     "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
     "messageId": 9,
     "messageType": "message",
-    "messageCreated": "2016-07-27 16:46:05",
+    "messageCreated": "2016-08-31T13:31:32+00:00",
     "message": "gtv"
   },
   {
@@ -292,7 +292,7 @@ type          | query string | string(optional)  | type of messages, null by def
     "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
     "messageId": 10,
     "messageType": "message",
-    "messageCreated": "2016-07-27 16:48:21",
+    "messageCreated": "2016-08-31T13:31:32+00:00",
     "message": "ggy"
   }
 ]
@@ -561,7 +561,7 @@ message   | string   | message to client
     "userAvatar":"http:\/\/52.50.150.232\/?r=files%2Fimages%2FC7CDzSvDzv_1467885361.jpg",
     "messageId":"37",
     "messageType":"message",
-    "messageCreated":"2016-07-26 13:52:15",
+    "messageCreated":"2016-08-31T13:31:32+00:00",
     "message":"hello!!",
     "key": "1234567"
 }
@@ -619,7 +619,7 @@ key            | string   | request id
     "userAvatar":"http:\/\/52.50.150.232\/?r=files%2Fimages%2FC7CDzSvDzv_1467885361.jpg",
     "messageId":"38",
     "messageType":"photo",
-    "messageCreated":"2016-07-26 13:52:58",
+    "messageCreated":"2016-08-31T13:31:32+00:00",
     "url":"http:\/\/foodiz.local\/files\/images\/lWrdCqYAgA_1467928754.jpg",
     "key": "1234567"
 }
@@ -677,7 +677,7 @@ key            | string   | request id
     "userAvatar":"http:\/\/52.50.150.232\/?r=files%2Fimages%2FC7CDzSvDzv_1467885361.jpg",
     "messageId":"39",
     "messageType":"video",
-    "messageCreated":"2016-07-26 13:55:07",
+    "messageCreated":"2016-08-31T13:31:32+00:00",
     "url":"https:\/\/www.youtube.com\/watch?v=op3eNwtSGfM",
     "key": "1234567"
 }
@@ -735,14 +735,14 @@ key            | string   | request id
     "userAvatar":"http:\/\/52.50.150.232\/?r=files%2Fimages%2FC7CDzSvDzv_1467885361.jpg",
     "messageId":"43",
     "messageType":"event",
-    "messageCreated":"2016-07-26 14:04:06",
+    "messageCreated":"2016-08-31T13:31:32+00:00",
     "event":{
         "id":"1",
         "title":"test",
         "userId":"18",
-        "created":"2016-07-12 20:00:00",
-        "updated":"2016-07-12 20:00:00",
-        "date":"2016-07-15 20:00:00",
+        "created":"2016-08-31T13:31:32+00:00",
+        "updated":"2016-08-31T13:31:32+00:00",
+        "date":"2016-08-31T13:31:32+00:00",
         "status":"active",
         "coverUrl":null,
         "places":"0",
@@ -853,7 +853,7 @@ success   | bool     | It signifies successful completion of the request
 ```json
 {
     "title":"Uzhgorod first event", 
-    "date":"2016-08-07 16:44:00",
+    "date":"2016-08-31T13:31:32+00:00",
     "places":8,
     "description":"Test description",
     "address":"Ukraine, Uzhgorod, Dukhnovycha Street, 13",
@@ -876,9 +876,9 @@ success   | bool     | It signifies successful completion of the request
   "id": 5,
   "title": "Uzhgorod first event",
   "userId": 1,
-  "created": "2016-07-28 08:39:13",
-  "updated": "2016-07-28 08:39:13",
-  "date": "2016-08-07 16:44:00",
+  "created": "2016-08-31T13:31:32+00:00",
+  "updated": "2016-08-31T13:31:32+00:00",
+  "date": "2016-08-31T13:31:32+00:00",
   "status": "active",
   "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
   "places": 8,
@@ -978,14 +978,14 @@ count | integer | count of active events in requested general chat room
   {
     "id": 1,
     "message": "Test comment",
-    "created": "2016-08-04 13:26:34",
+    "created": "2016-08-31T13:31:32+00:00",
     "username": "Illia Hapak",
     "userAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   },
   {
     "id": 2,
     "message": "Test comment",
-    "created": "2016-08-04 13:27:34",
+    "created": "2016-08-31T13:31:32+00:00",
     "username": "Illia Hapak",
     "userAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
   }
@@ -1030,9 +1030,9 @@ eventId     | query string | integer    | id of event
     "id": 5,
     "title": "Uzhgorod first event",
     "userId": 1,
-    "created": "2016-07-28 08:39:13",
-    "updated": "2016-07-28 08:39:13",
-    "date": "2016-08-07 16:44:00",
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
     "status": "active",
     "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "places": 8,
@@ -1048,34 +1048,38 @@ eventId     | query string | integer    | id of event
     "rating": 3.5
   },
   "creator": {
-    "id": 1,
-    "username": "Illia Hapak",
-    "google": null,
-    "twitter": "747812726177660928",
+    "id": 3,
+    "username": "Eduard Chory",
+    "google": "108334144855221607574",
+    "twitter": null,
     "facebook": null,
-    "avatarUrl": "http://52.50.150.232/files/images/wDlvX-04N2_1468663003.jpg",
-    "created": "2016-07-16 09:56:43",
-    "updated": "2016-07-16 09:56:43",
+    "avatarUrl": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+    "created": "2016-07-18T10:09:23+00:00",
+    "updated": "2016-07-18T10:09:23+00:00",
     "blocked_till": null,
     "blocked_reason": null,
     "online": 0,
-    "active": 1
+    "active": 1,
+    "banType": null,
+    "admin": 0
   },
   "participants": [
     {
-      "id": 2,
-      "username": "Eduard Chory",
-      "google": null,
-      "twitter": "4311451583",
-      "facebook": null,
-      "avatarUrl": "http://52.50.150.232/files/images/tyaRLtgA7f_1468829754.png",
-      "created": "2016-07-18 08:15:54",
-      "updated": "2016-07-18 08:15:54",
-      "blocked_till": null,
-      "blocked_reason": null,
-      "online": 0,
-      "active": 1
-    }
+        "id": 3,
+        "username": "Eduard Chory",
+        "google": "108334144855221607574",
+        "twitter": null,
+        "facebook": null,
+        "avatarUrl": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+        "created": "2016-07-18T10:09:23+00:00",
+        "updated": "2016-07-18T10:09:23+00:00",
+        "blocked_till": null,
+        "blocked_reason": null,
+        "online": 0,
+        "active": 1,
+        "banType": null,
+        "admin": 0
+      }
   ]
 }
 ```
@@ -1210,9 +1214,9 @@ success   | bool     | It signifies successful completion of the request
   "id": 7,
   "title": "Uzhgorod event (updated)",
   "userId": 1,
-  "created": "2016-07-28 14:24:27",
-  "updated": "2016-07-28 14:24:27",
-  "date": "2016-08-08 14:00:00",
+  "created": "2016-08-31T13:31:32+00:00",
+  "updated": "2016-08-31T13:31:32+00:00",
+  "date": "2016-08-31T13:31:32+00:00",
   "status": "active",
   "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
   "places": 8,
@@ -1324,9 +1328,9 @@ rating    | float    | current event rating
   "id": 3,
   "title": "Test title updated",
   "userId": 1,
-  "created": "2016-07-20 08:55:46",
-  "updated": "2016-07-28 10:05:29",
-  "date": "2016-08-07 16:44:00",
+  "created": "2016-08-31T13:31:32+00:00",
+  "updated": "2016-08-31T13:31:32+00:00",
+  "date": "2016-08-31T13:31:32+00:00",
   "status": "active",
   "coverUrl": "http://foodizfront.dev/files/images/E7_Ths48l7_1468581507.jpg",
   "places": 8,
@@ -1466,7 +1470,7 @@ url       | string   | url of video resource
 {
     "id": 1,
     "message": "Test comment",
-    "created": "2016-08-04 13:26:34",
+    "created": "2016-08-31T13:31:32+00:00",
     "username": "Illia Hapak",
     "userAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg"
 }
@@ -1490,9 +1494,9 @@ userAvatar     | string   | url of author avatar
   "id": 3,
   "title": "Test title updated",
   "userId": 1,
-  "created": "2016-07-20 08:55:46",
-  "updated": "2016-07-28 10:05:29",
-  "date": "2016-08-07 16:44:00",
+  "created": "2016-08-31T13:31:32+00:00",
+  "updated": "2016-08-31T13:31:32+00:00",
+  "date": "2016-08-31T13:31:32+00:00",
   "status": "active",
   "coverUrl": "http://foodizfront.dev/files/images/E7_Ths48l7_1468581507.jpg",
   "places": 8,
@@ -1543,7 +1547,7 @@ rating         | float    | rating of event
     "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
     "messageId": 9,
     "messageType": "message",
-    "messageCreated": "2016-07-27 16:46:05",
+    "messageCreated": "2016-08-31T13:31:32+00:00",
     "message": "gtv"
 }
 ```
@@ -1591,7 +1595,7 @@ city        | string   | chat city
     "userAvatar": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
     "messageId": 9,
     "messageType": "message",
-    "messageCreated": "2016-07-27 16:46:05",
+    "messageCreated": "2016-08-31T13:31:32+00:00",
     "message": "gtv"
 }
 ```
@@ -1616,7 +1620,7 @@ message        | string/json object | content of message
     "id": 1,
     "message": "By the event joined by Illia Hapak",
     "action": "Join to event.",
-    "created": "2016-07-20 14:27:42"
+    "created": "2016-08-31T13:31:32+00:00"
 }
 ```
 
@@ -1634,18 +1638,20 @@ created     | string   | date of creation (format: ISO 8601)
 
 ```json
 {
-      "id": 2,
+      "id": 3,
       "username": "Eduard Chory",
-      "google": null,
-      "twitter": "4311451583",
+      "google": "108334144855221607574",
+      "twitter": null,
       "facebook": null,
-      "avatarUrl": "http://52.50.150.232/files/images/tyaRLtgA7f_1468829754.png",
-      "created": "2016-07-18 08:15:54",
-      "updated": "2016-07-18 08:15:54",
+      "avatarUrl": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+      "created": "2016-07-18T10:09:23+00:00",
+      "updated": "2016-07-18T10:09:23+00:00",
       "blocked_till": null,
       "blocked_reason": null,
       "online": 0,
-      "active": 1
+      "active": 1,
+      "banType": null,
+      "admin": 0
 }
 ```
 
@@ -1661,6 +1667,10 @@ created        | string   | date of creation (format: ISO 8601)
 updated        | string   | date of last modification (format: ISO 8601)
 blocked_till   | string   | date of end block (format: ISO 8601)
 blocked_reason | string   | Explain why user was blocked
+online         | bool     | Shows that user online
+active         | bool     | Shows that user account is active
+banType        | string   | can be: "permanent_ban", "daily_ban", "temporary_ban"
+admin          | bool     | Shows that user is admin
 
 # User settings and profile
 
@@ -1912,9 +1922,9 @@ success   | bool     | It signifies successful completion of the request
     "id": 4,
     "title": "Uzhgorod first event",
     "userId": 1,
-    "created": "2016-07-26 11:45:07",
-    "updated": "2016-07-26 11:45:07",
-    "date": "2016-08-07 16:44:00",
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
     "status": "finished",
     "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "places": 8,
@@ -1933,9 +1943,9 @@ success   | bool     | It signifies successful completion of the request
     "id": 5,
     "title": "Uzhgorod first event",
     "userId": 1,
-    "created": "2016-07-28 08:39:13",
-    "updated": "2016-07-28 08:39:13",
-    "date": "2016-08-07 16:44:00",
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
     "status": "canceled",
     "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "places": 8,
@@ -1992,9 +2002,9 @@ size | query string | integer | size of page (optional), by default = 10
     "id": 4,
     "title": "Uzhgorod first event",
     "userId": 1,
-    "created": "2016-07-26 11:45:07",
-    "updated": "2016-07-26 11:45:07",
-    "date": "2016-08-07 16:44:00",
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
     "status": "active",
     "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "places": 8,
@@ -2013,9 +2023,9 @@ size | query string | integer | size of page (optional), by default = 10
     "id": 5,
     "title": "Uzhgorod first event",
     "userId": 1,
-    "created": "2016-07-28 08:39:13",
-    "updated": "2016-07-28 08:39:13",
-    "date": "2016-08-07 16:44:00",
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
     "status": "active",
     "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "places": 8,
@@ -2072,13 +2082,13 @@ size | query string | integer | size of page (optional), by default = 10
     "id": 1,
     "message": "By the event joined by Illia Hapak",
     "action": "Join to event.",
-    "created": "2016-07-20 14:27:42"
+    "created": "2016-08-31T13:31:32+00:00"
   },
   {
     "id": 2,
     "message": "User Illia Hapak canceled reservation.",
     "action": "Leave event.",
-    "created": "2016-07-20 14:31:08"
+    "created": "2016-08-31T13:31:32+00:00"
   }
 ]
 ```
@@ -2122,9 +2132,9 @@ size | query string | integer | size of page (optional), by default = 10
     "id": 4,
     "title": "Uzhgorod first event",
     "userId": 1,
-    "created": "2016-07-26 11:45:07",
-    "updated": "2016-07-26 11:45:07",
-    "date": "2016-08-07 16:44:00",
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
     "status": "active",
     "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "places": 8,
@@ -2143,9 +2153,9 @@ size | query string | integer | size of page (optional), by default = 10
     "id": 5,
     "title": "Uzhgorod first event",
     "userId": 1,
-    "created": "2016-07-28 08:39:13",
-    "updated": "2016-07-28 08:39:13",
-    "date": "2016-08-07 16:44:00",
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
     "status": "active",
     "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "places": 8,
@@ -2202,9 +2212,9 @@ size | query string | integer | size of page (optional), by default = 10
     "id": 4,
     "title": "Uzhgorod first event",
     "userId": 1,
-    "created": "2016-07-26 11:45:07",
-    "updated": "2016-07-26 11:45:07",
-    "date": "2016-08-07 16:44:00",
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
     "status": "active",
     "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "places": 8,
@@ -2223,9 +2233,9 @@ size | query string | integer | size of page (optional), by default = 10
     "id": 5,
     "title": "Uzhgorod first event",
     "userId": 1,
-    "created": "2016-07-28 08:39:13",
-    "updated": "2016-07-28 08:39:13",
-    "date": "2016-08-07 16:44:00",
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
     "status": "active",
     "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
     "places": 8,
