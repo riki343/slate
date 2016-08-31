@@ -99,25 +99,23 @@ id            | integer  | id of user
 
 ```json
 {
-    "message": "You logged out"
+    "success": true
 }
 ```
-
-> 401 Error: token not found
 
 > Error Response
 
 ```json
 {
-  "name": "Bad Request",
-  "message": "Missing required parameters: social",
+  "name": "Internal Server Error",
+  "message": "Failed to logout the user for unknown reason!",
   "code": 0,
-  "status": 400,
-  "type": "yii\\web\\BadRequestHttpException"
+  "status": 500,
+  "type": "yii\\web\\ServerErrorHttpException"
 }
 ```
 
-This endpoint authenticate user and retrieve token for application.
+Destroys user access token.
 
 ### HTTP Request
 
@@ -127,7 +125,7 @@ This endpoint authenticate user and retrieve token for application.
 
 Key       | Type     | Description
 --------- | -------- | -----------
-message   | string   | 
+success   | bool     | It signifies successful completion of the request
 
 
 # Chat
@@ -1665,6 +1663,50 @@ blocked_till   | string   | date of end block (format: ISO 8601)
 blocked_reason | string   | Explain why user was blocked
 
 # User settings and profile
+
+## (REST)Refresh connection
+
+> Success Response:
+
+```json
+{
+    "success": true
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Internal Server Error",
+  "message": "Failed to connect for unknown reason!",
+  "code": 0,
+  "status": 500,
+  "type": "yii\\web\\ServerErrorHttpException"
+}
+```
+
+ Saves the current screen name in app to user statistic and adds 60 seconds total time spent in app. 
+
+ <aside class="notice">
+  This method should call every minute!
+ </aside>
+ 
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/connect`
+ 
+### Request Parameters
+
+Key           | Place        | Type    | Description
+------------- | ------------ | ------- | -----------
+lastScreen    | query string | string  | Screen name.
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
 
 ## (REST) Deactivate account
 
