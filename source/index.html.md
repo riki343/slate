@@ -1664,6 +1664,48 @@ blocked_reason | string   | Explain why user was blocked
 
 # User settings and profile
 
+## (REST) Connect social
+
+> Success Response
+
+```json
+{
+  "success": true
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Bad Request",
+  "message": "User with this social ID exist",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+Connect social network to user account.  
+If user with this social id exist it generates BadRequestHttpException.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/connect-social`
+ 
+### Request Parameters
+
+Key         | Place        | Type    | Description
+----------- | ------------ | ------- | -----------
+social      | query string | string  | can be: "twitter", "facebook", "google"
+socialId    | query string | string  | user id in social network
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
+
 ## (REST) Deactivate account
 
 > Success Response
@@ -1712,12 +1754,15 @@ success   | bool     | It signifies successful completion of the request
 
 ```json
 {
-  "success": false,
-  "error": "Invalid social network"
+  "name": "Bad Request",
+  "message": "Invalid social network!",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
-Disconnect social network from user account.
+Disconnect selected social network from user account.
 
 ### HTTP Request
  
