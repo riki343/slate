@@ -1664,50 +1664,6 @@ blocked_reason | string   | Explain why user was blocked
 
 # User settings and profile
 
-## (REST)Refresh connection
-
-> Success Response:
-
-```json
-{
-    "success": true
-}
-```
-
-> Error Response
-
-```json
-{
-  "name": "Internal Server Error",
-  "message": "Failed to connect for unknown reason!",
-  "code": 0,
-  "status": 500,
-  "type": "yii\\web\\ServerErrorHttpException"
-}
-```
-
- Saves the current screen name in app to user statistic and adds 60 seconds total time spent in app. 
-
- <aside class="notice">
-  This method should call every minute!
- </aside>
- 
-### HTTP Request
- 
- `GET http://52.50.150.232/api/connect`
- 
-### Request Parameters
-
-Key           | Place        | Type    | Description
-------------- | ------------ | ------- | -----------
-lastScreen    | query string | string  | Screen name.
-
-### Success Response model
-
-Key       | Type     | Description
---------- | -------- | -----------
-success   | bool     | It signifies successful completion of the request
-
 ## (REST) Deactivate account
 
 > Success Response
@@ -1850,6 +1806,50 @@ Remove user from participants of event.
 Key         | Place        | Type    | Description
 ----------- | ------------ | ------- | -----------
 id          | query string | integer | id of event
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
+
+## (REST)Refresh connection
+
+> Success Response:
+
+```json
+{
+    "success": true
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Internal Server Error",
+  "message": "Failed to connect for unknown reason!",
+  "code": 0,
+  "status": 500,
+  "type": "yii\\web\\ServerErrorHttpException"
+}
+```
+
+ Saves the current screen name in app to user statistic and adds 60 seconds total time spent in app. 
+
+ <aside class="notice">
+  This method should call every minute!
+ </aside>
+ 
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/connect`
+ 
+### Request Parameters
+
+Key           | Place        | Type    | Description
+------------- | ------------ | ------- | -----------
+lastScreen    | query string | string  | Screen name.
 
 ### Success Response model
 
