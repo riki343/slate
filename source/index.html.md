@@ -817,8 +817,11 @@ key            | string        | request id
 
 ```json
 {
-  "success": false,
-  "error": "Status is invalid."
+  "name": "Bad Request",
+  "message": "Status is invalid.",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
@@ -895,8 +898,11 @@ success   | bool     | It signifies successful completion of the request
 
 ```json
 {
-  "success": false,
-  "error": "Cover not found!"
+  "name": "Bad Request",
+  "message": "Invalid Cover Url!",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
@@ -1088,8 +1094,11 @@ eventId     | query string | integer    | id of event
 
 ```json
 {
-  "success": false,
-  "error": "Event not exist."
+  "name": "Bad Request",
+  "message": "Event not exist.",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
@@ -1177,8 +1186,11 @@ success   | bool     | It signifies successful completion of the request
 
 ```json
 {
-  "success": false,
-  "error": "User or event not exist"
+  "name": "Bad Request",
+  "message": "User or event not exist",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
@@ -1351,12 +1363,15 @@ rating    | float    | current event rating
 
 ```json
 {
-  "success": false,
-  "error": "Event ID is invalid."
+  "name": "Bad Request",
+  "message": "Invalid Cover Url!",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
-Update an existing event model.
+Updating an existing event model.
 
 ### HTTP Request
 
@@ -1804,8 +1819,11 @@ success   | bool     | It signifies successful completion of the request
 
 ```json
 {
-  "success": false,
-  "error": "Event not exist."
+  "name": "Bad Request",
+  "message": "Event not exist.",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
@@ -1845,8 +1863,11 @@ success   | bool     | It signifies successful completion of the request
 
 ```json
 {
-  "success": false,
-  "error": "The user does not take part in the event."
+  "name": "Bad Request",
+  "message": "The user does not take part in the event.",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
@@ -2257,8 +2278,11 @@ size | query string | integer | size of page (optional), by default = 10
 
 ```json
 {
-  "success": false,
-  "error": "Invalid chat room id"
+  "name": "Bad Request",
+  "message": "Invalid chat room id",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
 }
 ```
 
