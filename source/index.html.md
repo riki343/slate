@@ -1687,6 +1687,204 @@ active         | bool     | Shows that user account is active
 banType        | string   | can be: "permanent_ban", "daily_ban", "temporary_ban"
 admin          | bool     | Shows that user is admin
 
+# Push notifications
+
+## Ban
+Can be received by all users(except moderators).
+Reports the user that his account banned.
+<aside class="notice">
+ When redirecting user by banInfo link, http header should contain user access token.
+</aside>
+
+### Extra fields
+Key     | Type   | Description
+------- | ------ | -----------
+action  | string | Define push type
+banInfo | string | Link on web page with info about ban
+
+<aside class="notice">
+ action contain "ban"
+</aside>
+
+## Cancel event
+
+Can be received by participants of events.
+Reports the user about the event cancellation.
+
+### Extra fields
+Key     | Type    | Description
+------- | ------- | -----------
+action  | string  | Define push type
+id      | integer | id of event
+
+<aside class="notice">
+ action contain "cancel_event"
+</aside>
+
+## Cancel reservation
+
+Can be received only by HOSTs.
+Reports HOST about the user which canceled reservation in event.
+
+### Extra fields
+Key     | Type    | Description
+------- | ------- | -----------
+action  | string  | Define push type
+eventId | integer | id of event
+userId  | integer | id of user that canceled reservation
+
+
+<aside class="notice">
+ action contain "cancel_reservation"
+</aside>
+
+## Close event
+
+Can be received by participants of events.
+Reports the user about closing of event.
+
+### Extra fields
+Key     | Type    | Description
+------- | ------- | -----------
+action  | string  | Define push type
+eventId | integer | id of event
+
+<aside class="notice">
+ action contain "close_event"
+</aside>
+
+## Comment event
+
+Can be received only by HOSTs of events.
+Reports the HOST about new comments to finished events.
+
+### Extra fields
+Key     | Type    | Description
+------- | ------- | -----------
+action  | string  | Define push type
+eventId | integer | id of event
+
+<aside class="notice">
+ action contain "comment_event"
+</aside>
+
+## New chat message
+
+Can be received by participants of chat rooms which are offline.
+Reports user about the new messages in his current chat room.
+
+### Extra fields
+Key         | Type    | Description
+----------- | ------- | -----------
+action      | string  | Define push type
+chatId      | integer | id of chat room
+messageType | string  | can be: "event" or "general"
+messageId   | integer | id of chat room message
+
+<aside class="notice">
+ action contain "post_message"
+</aside>
+
+## New event in your area
+
+Can be received by all users.
+Reports user about new event created by another user in the same chat room as receiver.
+
+### Extra fields
+Key     | Type    | Description
+------- | ------- | -----------
+action  | string  | Define push type
+eventId | integer | id of event
+
+<aside class="notice">
+ action contain "new_event"
+</aside>
+
+## New participant of event
+
+Can be received by participants of events and HOST of event.
+Reports by the events of the new member of the same event.
+
+### Extra fields
+Key     | Type    | Description
+------- | ------- | -----------
+action  | string  | Define push type
+eventId | integer | id of event
+userId  | integer | id of user that joined to event
+
+
+<aside class="notice">
+ action contain "new_participant"
+</aside>
+
+## Private message from moderator
+
+Can be received by all users.
+Message sent from CMS by moderator.
+
+### Extra fields
+Key     | Type   | Description
+------- | ------ | -----------
+action  | string | Define push type
+
+<aside class="notice">
+ action contain "private_message"
+</aside>
+
+## Repeat event
+
+Can be received by participants of events.
+Reports the user about event recurrence.
+
+### Extra fields
+Key     | Type    | Description
+------- | ------- | -----------
+action  | string  | Define push type
+id      | integer | event id
+
+<aside class="notice">
+ action contain "repeat_event"
+</aside>
+
+## Un ban
+
+Can be received by all users(except moderators).
+Reports the user that his account was unlocked.
+
+### Extra fields
+Key     | Type   | Description
+------- | ------ | -----------
+action  | string | Define push type
+
+<aside class="notice">
+ action contain "un_ban"
+</aside>
+
+## Update event
+
+Can be received by participants of event.
+Reports participant about update of event and update properties.
+
+### Extra fields
+Key         | Type    | be present | Description
+----------- | ------- | ---------- | -----------
+action      | string  |     yes    | Define push type
+eventId     | integer |     yes    | id of event
+title       | string  |     no     | updated title of event
+date        | string  |     no     | updated date of event (format: ISO 8601)
+places      | integer |     no     | updated max count of people on event
+description | string  |     no     | updated short description about the event
+address     | string  |     no     | updated address place of event
+takeWithYou | string  |     no     | updated count of things which participants should bring on event
+latitude    | float   |     no     | updated latitude place of event
+longitude   | float   |     no     | updated longitude place of event
+coverUrl    | string  |     no     | updated url of cover of event that resides on server
+
+
+<aside class="notice">
+ action contain "update_event"
+</aside>
+
 # User settings and profile
 
 ## (REST) Connect social
