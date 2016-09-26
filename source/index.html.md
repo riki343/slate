@@ -41,7 +41,10 @@ Welcome to the FOODIZ API Documentation
   "expiresAt": "2016-08-31T13:31:32+00:00",
   "userName": "Illia Hapak",
   "avatarUrl": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
-  "id": 1
+  "id": 1,
+  "google": "108334144855221607574",
+  "twitter": null,
+  "facebook": null
 }
 ```
 
@@ -663,7 +666,7 @@ key            | string   | request id
     "chatType": "general",
     "chatId": "1",
     "messageType": "video",
-    "url": "https://www.youtube.com/watch?v=op3eNwtSGfM",
+    "videoId": "v=op3eNwtSGfM",
     "key": "1234567"
 }
 ```
@@ -678,7 +681,7 @@ key            | string   | request id
     "messageId":"39",
     "messageType":"video",
     "messageCreated":"2016-08-31T13:31:32+00:00",
-    "url":"https:\/\/www.youtube.com\/watch?v=op3eNwtSGfM",
+    "videoId":"v=op3eNwtSGfM",
     "key": "1234567"
 }
 ```
@@ -765,7 +768,7 @@ key            | string   | request id
 }
 ```
 
- Send video into chat.
+ Send event into chat.
  
 ### Request Parameters
 
@@ -1442,39 +1445,6 @@ Key       | Type     | Description
 --------- | -------- | -----------
 url       | string   | url of image that resides on server
 
-## (REST)Upload Video
-
-> Success Response: 
-
-```json
-{
-  "url": "https://www.youtube.com/watch?v=op3eNwtSGfM"
-}
-```
-
- Uploading video via url.
- 
-### HTTP Request
- 
- `GET http://52.50.150.232/api/upload/video`
- 
- <aside class="notice">
-     Content-type available: application/json and form-data
- </aside>
- 
-### Request Parameters
-
-Key     | Place   | Type     | Description
-------- | ------- | -------- | -----------
-url     | body    | string   | url of video resource
-hash    | body    | string   | hash of video
-
-### Success Response model
-
-Key       | Type     | Description
---------- | -------- | -----------
-url       | string   | url of video resource
-
 # Models
 
 ## Comment
@@ -1567,16 +1537,18 @@ rating         | float    | rating of event
 }
 ```
 
-Key            | Type               | Description
--------------- | ------------------ | -----------
-isOwner        | bool               | defines that current user is author of the message
-userId         | integer            | id of user
-userName       | string             | username taken from social
-userAvatar     | string             | url of avatar that resides on server
-messageId      | integer            | id of message
-messageType    | string             | can be: "message", "photo", "video"
-messageCreated | string             | date of creation
-message        | string/json object | content of message
+Key            | Type             | Description
+-------------- | ---------------- | -----------
+isOwner        | bool             | defines that current user is author of the message
+userId         | integer          | id of user
+userName       | string           | username taken from social
+userAvatar     | string           | url of avatar that resides on server
+messageId      | integer          | id of message
+messageType    | string           | can be: "message", "photo", "video"
+messageCreated | string           | date of creation
+message        | string(optional) | content of message, if messageType="message"
+url            | string(optional) | url photo that resides on server, if messageType="photo"
+videoId        | string(optional) | youtube video id, if messageType="video"
 
 ## General Chat Room
 
@@ -1615,16 +1587,19 @@ city        | string   | chat city
 }
 ```
 
-Key            | Type               | Description
--------------- | ------------------ | -----------
-isOwner        | bool               | defines that current user is author of the message
-userId         | integer            | id of user
-userName       | string             | username taken from social
-userAvatar     | string             | url of avatar that resides on server
-messageId      | integer            | id of message
-messageType    | string             | can be: "message", "photo", "video", "event", if type "event" then message will contain [Event](#event) model
-messageCreated | string             | date of creation
-message        | string/json object | content of message
+Key            | Type             | Description
+-------------- | ---------------- | -----------
+isOwner        | bool             | defines that current user is author of the message
+userId         | integer          | id of user
+userName       | string           | username taken from social
+userAvatar     | string           | url of avatar that resides on server
+messageId      | integer          | id of message
+messageType    | string           | can be: "message", "photo", "video", "event"
+messageCreated | string           | date of creation
+event          | json object      | [Event](#event) model, if messageType="event"
+message        | string(optional) | content of message, if messageType="message"
+url            | string(optional) | url photo that resides on server, if messageType="photo"
+videoId        | string(optional) | youtube video id, if messageType="video"
 
 ## Push Notification
 
