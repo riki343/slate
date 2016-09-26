@@ -1889,14 +1889,15 @@ If user with this social id exist it generates BadRequestHttpException.
 
 ### HTTP Request
  
- `GET http://52.50.150.232/api/connect-social`
+ `POST http://52.50.150.232/api/connect-social`
  
 ### Request Parameters
 
-Key         | Place        | Type    | Description
------------ | ------------ | ------- | -----------
-social      | query string | string  | can be: "twitter", "facebook", "google"
-socialId    | query string | string  | user id in social network
+Key         | Place  | Type    | Description
+----------- | ------ | ------- | -----------
+social      | body   | string  | can be: "twitter", "facebook", "google"
+token       | body   | string  | social token
+secret      | body   | string  | if social="twitter"
 
 ### Success Response model
 
