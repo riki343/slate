@@ -666,7 +666,7 @@ key            | string   | request id
     "chatType": "general",
     "chatId": "1",
     "messageType": "video",
-    "videoId": "v=op3eNwtSGfM",
+    "url": "v=op3eNwtSGfM",
     "key": "1234567"
 }
 ```
@@ -697,7 +697,7 @@ token       | body  | string      | access token
 chatType    | body  | string      | can be: "general", "event"
 chatId      | body  | string      | id of chat
 messageType | body  | string      | can be: "message", "photo", "video", "event"
-url         | body  | string      | url of video
+url         | body  | string      | url of video(or youtube video id)
 key         | body  | string      | request id
 
 ### Success Response model
@@ -710,7 +710,7 @@ userAvatar     | string   | url of avatar that resides on server
 messageId      | string   | id of message
 messageType    | string   | can be: "message", "photo", "video", "event"
 messageCreated | string   | date of creation (format: ISO 8601)
-url            | string   | url of video
+videoId        | string   | Youtube video id or full url
 key            | string   | request id
 
 ## (WS) Send Event
@@ -2262,6 +2262,79 @@ Key  | Place        | Type    | Description
 ---- | ------------ | ------- | -----------
 page | query string | integer | number of page (optional), by default = 1
 size | query string | integer | size of page (optional), by default = 10
+
+### Success Response 
+
+ Returns json array of [Event](#event) models.
+
+## (REST) View not rated by user events
+
+> Success Response
+
+```json
+[
+  {
+    "id": 4,
+    "title": "Uzhgorod first event",
+    "userId": 1,
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
+    "status": "finished",
+    "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
+    "places": 8,
+    "description": "Test description",
+    "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
+    "takeWithYou": "Wine, Juice",
+    "latitude": 22.4342,
+    "longitude": 49.4324,
+    "chatRoomId": 1,
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
+  },
+  {
+    "id": 5,
+    "title": "Uzhgorod first event",
+    "userId": 1,
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
+    "status": "finished",
+    "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
+    "places": 8,
+    "description": "Test description",
+    "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
+    "takeWithYou": "Wine, Juice",
+    "latitude": 22.4342,
+    "longitude": 49.4324,
+    "chatRoomId": 1,
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
+  }
+]
+```
+
+> Error Response
+
+```json
+{
+  "name": "Unauthorized",
+  "message": "You are requesting with an invalid credential.",
+  "code": 0,
+  "status": 401,
+  "type": "yii\\web\\UnauthorizedHttpException"
+}
+```
+
+Returns all finished and not rated by user events in which user participated before.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/view-not-rated-events`
 
 ### Success Response 
 
