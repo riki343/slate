@@ -37,14 +37,18 @@ Welcome to the FOODIZ API Documentation
 
 ```json
 {
-  "Authorization": "Bearer a-cmS6Sg41XaO6NzUQRvhlgi4Dt6np1469632525",
-  "expiresAt": "2016-08-31T13:31:32+00:00",
-  "userName": "Illia Hapak",
-  "avatarUrl": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
-  "id": 1,
-  "google": "108334144855221607574",
-  "twitter": null,
-  "facebook": null
+  "statusCode": 204,
+  "Authorization": "Bearer ANmpj8rHN88kfiMepBSIuegrxFMulg1475149264",
+  "expiresAt": "2016-10-13T11:41:04+00:00",
+  "userName": "Valerf",
+  "avatarUrl": "http://52.50.150.232/files/images/wDlvX-04N2_1468663003.jpg",
+  "id": 28,
+  "google": null,
+  "twitter": "771681186552934400",
+  "facebook": null,
+  "colorPrimary": "#1712a3",
+  "colorPrimaryDark": "#1cdb23",
+  "url": "http://52.50.150.232/activate-account"
 }
 ```
 
@@ -87,13 +91,20 @@ pushToken   | body  | string    | token for google cloud messaging
 
 ### Success Response model
 
-Key           | Type     | Description
-------------- | -------- | -----------
-Authorization | string   | token for mobile app
-expiresAt     | string   | token expiration date (format: ISO 8601)
-username      | string   | user name from social networks
-avatarUrl     | string   | url of avatar that resides on server
-id            | integer  | id of user
+Key              | Type             | Description
+---------------- | ---------------- | -----------
+statusCode       | integer          | define success login scenario: 200 - user logged in, 204 - user logged in, but his account deactivated or blocked
+Authorization    | string           | token for mobile app
+expiresAt        | string           | token expiration date (format: ISO 8601)
+username         | string           | user name from social networks
+avatarUrl        | string           | url of avatar that resides on server
+id               | integer          | id of user
+google           | string           | google id
+twitter          | string           | twitter id
+facebook         | string           | facebook id
+colorPrimary     | string           | primary app color
+colorPrimaryDark | string           | dark primary app color
+url              | string(optional) | if statusCode = 204, then contain url of page with ban info or account activation page 
 
 
 ## (REST) Logout
@@ -2069,7 +2080,8 @@ success   | bool     | It signifies successful completion of the request
 
 ```json
 {
-    "success": true
+    "colorPrimary": "#1712a3",
+    "colorPrimaryDark": "#1cdb23"
 }
 ```
 
@@ -2085,7 +2097,8 @@ success   | bool     | It signifies successful completion of the request
 }
 ```
 
- Saves the current screen name in app to user statistic and adds 60 seconds total time spent in app. 
+ Saves the current screen name in app to user statistic and adds 60 seconds total time spent in app.  
+ Return actual app colors.
 
  <aside class="notice">
   This method should call every minute!
@@ -2103,9 +2116,10 @@ lastScreen    | query string | string  | Screen name.
 
 ### Success Response model
 
-Key       | Type     | Description
---------- | -------- | -----------
-success   | bool     | It signifies successful completion of the request
+Key              | Type     | Description
+---------------- | -------- | -----------
+colorPrimary     | string   | primary app color
+colorPrimaryDark | string   | dark primary app color
 
 ## (REST) View archive events
 
