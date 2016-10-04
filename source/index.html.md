@@ -1849,22 +1849,13 @@ action  | string | Define push type
 ## Update event
 
 Can be received by participants of event.
-Reports participant about update of event and update properties.
+Reports participant about update of event.
 
 ### Extra fields
-Key         | Type    | be present | Description
------------ | ------- | ---------- | -----------
-action      | string  |     yes    | Define push type
-eventId     | integer |     yes    | id of event
-title       | string  |     no     | updated title of event
-date        | string  |     no     | updated date of event (format: ISO 8601)
-places      | integer |     no     | updated max count of people on event
-description | string  |     no     | updated short description about the event
-address     | string  |     no     | updated address place of event
-takeWithYou | string  |     no     | updated count of things which participants should bring on event
-latitude    | float   |     no     | updated latitude place of event
-longitude   | float   |     no     | updated longitude place of event
-coverUrl    | string  |     no     | updated url of cover of event that resides on server
+Key         | Type    | Description
+----------- | ------- | -----------
+action      | string  | Define push type
+eventId     | integer | id of event
 
 
 <aside class="notice">
