@@ -1745,10 +1745,12 @@ Can be received only by HOSTs of events.
 Reports the HOST about new comments to finished events.
 
 ### Extra fields
-Key     | Type    | Description
-------- | ------- | -----------
-action  | string  | Define push type
-eventId | integer | id of event
+Key        | Type    | Description
+---------- | ------- | -----------
+action     | string  | Define push type
+eventId    | integer | id of event
+userName   | string  | username of user that post a comment
+userAvatar | string  | avatar url of user that post a comment 
 
 <aside class="notice">
  action contain "comment_event"
@@ -1766,6 +1768,8 @@ action      | string  | Define push type
 chatId      | integer | id of chat room
 messageType | string  | can be: "event" or "general"
 messageId   | integer | id of chat room message
+userName    | string  | username of user that post a message
+userAvatar  | string  | avatar url of user that post a message
 
 <aside class="notice">
  action contain "post_message"
@@ -1792,11 +1796,13 @@ Can be received by participants of events and HOST of event.
 Reports by the events of the new member of the same event.
 
 ### Extra fields
-Key     | Type    | Description
-------- | ------- | -----------
-action  | string  | Define push type
-eventId | integer | id of event
-userId  | integer | id of user that joined to event
+Key        | Type    | Description
+---------- | ------- | -----------
+action     | string  | Define push type
+eventId    | integer | id of event
+userId     | integer | id of user that joined to event
+userName   | string  | username of user that joined to event
+userAvatar | string  | avatar url of user that joined to event
 
 
 <aside class="notice">
