@@ -1770,6 +1770,7 @@ messageType | string  | can be: "event" or "general"
 messageId   | integer | id of chat room message
 userName    | string  | username of user that post a message
 userAvatar  | string  | avatar url of user that post a message
+eventId     | integer | id of event assigned to chat room, null if it's general chat room message
 
 <aside class="notice">
  action contain "post_message"
