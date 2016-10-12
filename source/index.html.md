@@ -106,6 +106,9 @@ colorPrimary     | string           | primary app color
 colorPrimaryDark | string           | dark primary app color
 url              | string(optional) | if statusCode = 204, then contain url of page with ban info or account activation page 
 
+### Error responses
+
+401
 
 ## (REST) Logout
 
@@ -141,6 +144,9 @@ Key       | Type     | Description
 --------- | -------- | -----------
 success   | bool     | It signifies successful completion of the request
 
+### Error responses
+
+401, 500
 
 # Chat
 
@@ -234,6 +240,10 @@ extra        | body  | string      | some extra field
 ### Success Response
 
  Returns json array of [General Chat Room](#general-chat-room) models.
+ 
+### Error responses
+
+400
  
 ## (REST)Last messages: event chat room
 
@@ -1652,7 +1662,8 @@ created     | string   | date of creation (format: ISO 8601)
       "online": 0,
       "active": 1,
       "banType": null,
-      "admin": 0
+      "admin": 0,
+      "email": "example@example.com"
 }
 ```
 
@@ -1672,6 +1683,7 @@ online         | bool     | Shows that user online
 active         | bool     | Shows that user account is active
 banType        | string   | can be: "permanent_ban", "daily_ban", "temporary_ban"
 admin          | bool     | Shows that user is admin
+email          | string   | user email selected from social, can be null
 
 # Push notifications
 
@@ -1870,6 +1882,94 @@ eventId     | integer | id of event
 </aside>
 
 # User settings and profile
+
+## (REST) Change avatar
+
+> Success Response
+
+```json
+{
+  "success": true
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Not Found",
+  "message": "Image not found",
+  "code": 0,
+  "status": 404,
+  "type": "yii\\web\\NotFoundHttpException"
+}
+```
+
+Change user avatar to image which resides on server by url.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/change-avatar`
+
+### Request Parameters
+
+Key      | Place        | Type    | Description
+-------- | ------------ | ------- | -----------
+url      | query string | string  | url of image that resides on server
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
+
+### Error responses
+
+401, 403, 404, 466, 500
+
+## (REST) Change username
+
+> Success Response
+
+```json
+{
+  "success": true
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Bad Request",
+  "message": "Username should be no longer then 50 symbols",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+Change user avatar to image which resides on server by url.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/change-username`
+
+### Request Parameters
+
+Key         | Place        | Type    | Description
+----------- | ------------ | ------- | -----------
+newUsername | query string | string  | New username
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
+
+### Error responses
+
+400, 401, 403, 466
 
 ## (REST) Connect social
 
@@ -2118,6 +2218,45 @@ Key              | Type     | Description
 ---------------- | -------- | -----------
 colorPrimary     | string   | primary app color
 colorPrimaryDark | string   | dark primary app color
+
+## (REST) Remove avatar
+
+> Success Response
+
+```json
+{
+  "success": true
+}
+```
+
+> Error Response
+
+```json
+{
+  "name": "Bad Request",
+  "message": "You can't delete default avatar",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+Remove user avatar and set default avatar. Default avatar can't be removed!  
+Relative url of default avatar /files/default/male.png
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/remove-avatar`
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+success   | bool     | It signifies successful completion of the request
+
+### Error responses
+
+400, 401, 403, 466
 
 ## (REST) View archive events
 
