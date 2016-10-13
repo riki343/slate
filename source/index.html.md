@@ -2225,7 +2225,7 @@ colorPrimaryDark | string   | dark primary app color
 
 ```json
 {
-  "success": true
+  "defaultAvatar": "http://foodizfront.dev/files/default/male.png"
 }
 ```
 
@@ -2250,13 +2250,13 @@ Relative url of default avatar /files/default/male.png
 
 ### Success Response model
 
-Key       | Type     | Description
---------- | -------- | -----------
-success   | bool     | It signifies successful completion of the request
+Key           | Type   | Description
+------------- | ------ | -----------
+defaultAvatar | string | Url of default avatar image which resides on server
 
 ### Error responses
 
-400, 401, 403, 466
+400, 401, 403, 466, 500
 
 ## (REST) View archive events
 
