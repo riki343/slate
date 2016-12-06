@@ -1852,7 +1852,7 @@ username       | string  | username of user that put rating
 userAvatarUrl  | string  | avatar url of user that put rating
 
 <aside class="notice">
- action contain "repeat_event"
+ action contain "rate_event"
 </aside>
 
 ## Repeat event
@@ -2194,7 +2194,7 @@ success   | bool     | It signifies successful completion of the request
 
 [Push notification](#cancel-reservation)
 
-## (REST)Refresh connection
+## (REST) Refresh connection
 
 > Success Response:
 
