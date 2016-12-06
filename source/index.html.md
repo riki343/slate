@@ -1725,11 +1725,12 @@ Can be received only by HOSTs.
 Reports HOST about the user which canceled reservation in event.
 
 ### Extra fields
-Key     | Type    | Description
-------- | ------- | -----------
-action  | string  | Define push type
-eventId | integer | id of event
-userId  | integer | id of user that canceled reservation
+Key         | Type    | Description
+----------- | ------- | -----------
+action      | string  | Define push type
+eventId     | integer | id of event
+userId      | integer | id of user that canceled reservation
+explanation | string  | explanation why participant leave event
 
 
 <aside class="notice">
@@ -2172,6 +2173,8 @@ explanation | query string | string  | explanation why participant leave event, 
 Key       | Type     | Description
 --------- | -------- | -----------
 success   | bool     | It signifies successful completion of the request
+
+[Push notification](#cancel-reservation)
 
 ## (REST)Refresh connection
 
