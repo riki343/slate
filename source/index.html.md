@@ -2154,7 +2154,7 @@ success   | bool     | It signifies successful completion of the request
 }
 ```
 
-Remove user from participants of event.
+Remove user from participants of event and send push notification to HOST with explanation why user leave event.
 
 ### HTTP Request
  
@@ -2165,6 +2165,7 @@ Remove user from participants of event.
 Key         | Place        | Type    | Description
 ----------- | ------------ | ------- | -----------
 id          | query string | integer | id of event
+explanation | query string | string  | explanation why participant leave event, not empty and not more than 255 characters
 
 ### Success Response model
 
