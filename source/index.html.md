@@ -1325,7 +1325,7 @@ date        | query string | string  | new date of the event (format: ISO 8601)
 }
 ```
 
-Adds new rating for event.
+Adds new rating for event and notify HOST about that.
 
 ### HTTP Request
  
@@ -1345,6 +1345,7 @@ Key       | Type     | Description
 success   | bool     | It signifies successful completion of the request
 rating    | float    | current event rating
 
+[Push notification](#rate-event)
 
 ## (REST) Update event
 
@@ -1835,6 +1836,23 @@ action  | string | Define push type
 
 <aside class="notice">
  action contain "private_message"
+</aside>
+
+## Rate event
+
+Can be received only by HOSTs of events.
+Notify HOST about new rating of held event.
+
+### Extra fields
+Key            | Type    | Description
+-------------- | ------- | -----------
+action         | string  | Define push type
+eventId        | integer | event id
+username       | string  | username of user that put rating
+userAvatarUrl  | string  | avatar url of user that put rating
+
+<aside class="notice">
+ action contain "repeat_event"
 </aside>
 
 ## Repeat event
