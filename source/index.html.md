@@ -1850,6 +1850,7 @@ action         | string  | Define push type
 eventId        | integer | event id
 username       | string  | username of user that put rating
 userAvatarUrl  | string  | avatar url of user that put rating
+rating         | integer | rating which put user for event
 
 <aside class="notice">
  action contain "rate_event"
