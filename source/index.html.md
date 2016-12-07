@@ -940,26 +940,32 @@ Creates a new event and returns the new event model.
 
 ### Request Parameters
 
-Key         | Place | Type        | Description
------------ | ----- | ----------  | -----------
-title       | body  | string      | title for new event
-date        | body  | string      | date of the event (format: ISO 8601)
-places      | body  | integer     | max count of people on event
-description | body  | string      | short description about the event
-address     | body  | string      | address place of event
-coverUrl    | body  | string      | url of cover of event that resides on server
-takeWithYou | body  | string      | count of things which participants should bring on event
-latitude    | body  | float       | latitude place of event
-longitude   | body  | float       | longitude place of event
-chatRoomId  | body  | integer     | id of general chat room
+Key             | Place | Type        | Description
+--------------- | ----- | ----------  | -----------
+title           | body  | string      | title for new event
+date            | body  | string      | date of the event (format: ISO 8601)
+places          | body  | integer     | max count of people on event
+description     | body  | string      | short description about the event
+address         | body  | string      | address place of event
+coverUrl        | body  | string      | url of cover of event that resides on server
+takeWithYou     | body  | string      | count of things which participants should bring on event
+latitude        | body  | float       | latitude place of event
+longitude       | body  | float       | longitude place of event
+chatRoomId      | body  | integer     | id of general chat room
+basedOnEventId  | body  | integer     | id of repeating event
 
 <aside class="notice">
  Remember required only: title, date, coverUrl, places, latitude, longitude.
+</aside>
+<aside class="warning">
+ Remember when basedOnEventId present, event creats based by past event. Add all participants to new event and notify them.
 </aside>
 
 ### Success Response 
 
  Returns [Event](#event) model.
+
+ [Repeat event notification](#repeat-event)
 
 ## (REST) Created events in room
 
@@ -2160,7 +2166,61 @@ success   | bool     | It signifies successful completion of the request
 
 ```json
 {
-  "success": true
+  "event": {
+    "id": 5,
+    "title": "Uzhgorod first event",
+    "userId": 1,
+    "created": "2016-08-31T13:31:32+00:00",
+    "updated": "2016-08-31T13:31:32+00:00",
+    "date": "2016-08-31T13:31:32+00:00",
+    "status": "active",
+    "coverUrl": "http://52.50.150.232/files/images/HtvaQ4JJz9_1468666614.jpg",
+    "places": 8,
+    "description": "Test description",
+    "address": "Ukraine, Uzhgorod, Dukhnovycha Street, 13",
+    "takeWithYou": "Wine, Juice",
+    "latitude": 22.4342,
+    "longitude": 49.4324,
+    "chatRoomId": 1,
+    "reservedPlaces": 0,
+    "hostUsername": "Illia Hapak",
+    "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
+    "rating": 3.5
+  },
+  "creator": {
+    "id": 3,
+    "username": "Eduard Chory",
+    "google": "108334144855221607574",
+    "twitter": null,
+    "facebook": null,
+    "avatarUrl": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+    "created": "2016-07-18T10:09:23+00:00",
+    "updated": "2016-07-18T10:09:23+00:00",
+    "blocked_till": null,
+    "blocked_reason": null,
+    "online": 0,
+    "active": 1,
+    "banType": null,
+    "admin": 0
+  },
+  "participants": [
+    {
+        "id": 3,
+        "username": "Eduard Chory",
+        "google": "108334144855221607574",
+        "twitter": null,
+        "facebook": null,
+        "avatarUrl": "http://52.50.150.232/files/images/wn5Iof8I0w_1468836563.png",
+        "created": "2016-07-18T10:09:23+00:00",
+        "updated": "2016-07-18T10:09:23+00:00",
+        "blocked_till": null,
+        "blocked_reason": null,
+        "online": 0,
+        "active": 1,
+        "banType": null,
+        "admin": 0
+      }
+  ]
 }
 ```
 
