@@ -102,6 +102,7 @@ id               | integer          | id of user
 google           | string           | google id
 twitter          | string           | twitter id
 facebook         | string           | facebook id
+maxChairs        | integer          | Max number of chairs at HOST table. min=2, max=100.
 colorPrimary     | string           | primary app color
 colorPrimaryDark | string           | dark primary app color
 url              | string(optional) | if statusCode = 204, then contain url of page with ban info or account activation page 
