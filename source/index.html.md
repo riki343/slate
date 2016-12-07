@@ -46,6 +46,7 @@ Welcome to the FOODIZ API Documentation
   "google": null,
   "twitter": "771681186552934400",
   "facebook": null,
+  "maxChairs": 10,
   "colorPrimary": "#1712a3",
   "colorPrimaryDark": "#1cdb23",
   "url": "http://52.50.150.232/activate-account"
@@ -2203,7 +2204,8 @@ success   | bool     | It signifies successful completion of the request
 ```json
 {
     "colorPrimary": "#1712a3",
-    "colorPrimaryDark": "#1cdb23"
+    "colorPrimaryDark": "#1cdb23",
+    "maxChairs": 10
 }
 ```
 
@@ -2220,7 +2222,7 @@ success   | bool     | It signifies successful completion of the request
 ```
 
  Saves the current screen name in app to user statistic and adds 60 seconds total time spent in app.  
- Return actual app colors.
+ Return actual app colors & max number of chairs at HOST table.
 
  <aside class="notice">
   This method should call every minute!
@@ -2242,6 +2244,7 @@ Key              | Type     | Description
 ---------------- | -------- | -----------
 colorPrimary     | string   | primary app color
 colorPrimaryDark | string   | dark primary app color
+maxChairs        | integer  | Max number of chairs at HOST table. min=2, max=100.
 
 ## (REST) Remove avatar
 
