@@ -1433,48 +1433,6 @@ longitude   | body  | float       | longitude place of event
 
  Returns [Event](#event) model.
 
-# Files
-
-## (REST)Upload Image
-
-> Success Response: 
-
-```json
-{
-  "url": "http://52.50.150.232/files/images/pgV4RyqiCZ_1469803519.png"
-}
-```
-
-Error Response:
-
-```json
-{
-  "name": "Bad Request",
-  "message": "File cannot be blank.",
-  "code": 0,
-  "status": 400,
-  "type": "yii\\web\\BadRequestHttpException"
-}
-```
-
- Uploading image and returns url of image
- 
-### HTTP Request
- 
- `GET http://52.50.150.232/api/upload/image`
- 
-### Request Parameters
-
-Key     | Place   | Type     | Description
-------- | ------- | -------- | -----------
-file    | body    | file     | Allowable extensions: "jpeg", "jpg", "png"
-
-### Success Response model
-
-Key       | Type     | Description
---------- | -------- | -----------
-url       | string   | url of image that resides on server
-
 # Models
 
 ## Comment
@@ -1908,6 +1866,79 @@ eventId     | integer | id of event
 <aside class="notice">
  action contain "update_event"
 </aside>
+
+# Resources
+
+## (REST) Get welcome texts
+
+> Success Response
+
+```json
+"Głodni emocji."
+```
+
+> Error Response
+
+```json
+{
+  "name": "Unauthorized",
+  "message": "You are requesting with an invalid credential.",
+  "code": 0,
+  "status": 401,
+  "type": "yii\\web\\UnauthorizedHttpException"
+}
+```
+
+Returns welcome text from queue.  
+Returns empty string if feature disabled into CMS or no welcome texts into DB.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/get-welcome-text`
+
+### Success Response model
+
+String 
+
+## (REST) Upload Image
+
+> Success Response: 
+
+```json
+{
+  "url": "http://52.50.150.232/files/images/pgV4RyqiCZ_1469803519.png"
+}
+```
+
+Error Response:
+
+```json
+{
+  "name": "Bad Request",
+  "message": "File cannot be blank.",
+  "code": 0,
+  "status": 400,
+  "type": "yii\\web\\BadRequestHttpException"
+}
+```
+
+ Uploading image and returns url of image
+ 
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/upload/image`
+ 
+### Request Parameters
+
+Key     | Place   | Type     | Description
+------- | ------- | -------- | -----------
+file    | body    | file     | Allowable extensions: "jpeg", "jpg", "png"
+
+### Success Response model
+
+Key       | Type     | Description
+--------- | -------- | -----------
+url       | string   | url of image that resides on server
 
 # User settings and profile
 
