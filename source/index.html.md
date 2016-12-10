@@ -1869,24 +1869,34 @@ eventId     | integer | id of event
 
 # Resources
 
+## (REST) Get tutorial videos
+
+> Success Response
+
+```json
+[
+  "http://52.50.150.232/files/videos/1Walkthrough.mp4",
+  "http://52.50.150.232/files/videos/2Walkthrough.mp4",
+  "http://52.50.150.232/files/videos/3Walkthrough.mp4"
+]
+```
+
+Returns links to 3 tutorial videos which resides on server.
+
+### HTTP Request
+ 
+ `GET http://52.50.150.232/api/get-walkthrough-videos`
+
+### Success Response model
+
+String[]
+
 ## (REST) Get welcome texts
 
 > Success Response
 
 ```json
 "Głodni emocji."
-```
-
-> Error Response
-
-```json
-{
-  "name": "Unauthorized",
-  "message": "You are requesting with an invalid credential.",
-  "code": 0,
-  "status": 401,
-  "type": "yii\\web\\UnauthorizedHttpException"
-}
 ```
 
 Returns welcome text from queue.  
