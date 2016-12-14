@@ -1875,13 +1875,22 @@ eventId     | integer | id of event
 
 ```json
 [
-  "http://52.50.150.232/files/videos/1Walkthrough.mp4",
-  "http://52.50.150.232/files/videos/2Walkthrough.mp4",
-  "http://52.50.150.232/files/videos/3Walkthrough.mp4"
+  {
+    "videoUrl": "http://52.50.150.232/files/videos/1z9m4-bLwl_1481728470.mp4",
+    "previewUrl": "http://52.50.150.232/files/videos/zQ1ZiSUDNZ_1481728470.jpg"
+  },
+  {
+    "videoUrl": "http://52.50.150.232/files/videos/WQljdJjTiI_1481728813.mp4",
+    "previewUrl": "http://52.50.150.232/files/videos/nP333fjGUr_1481728813.jpg"
+  },
+  {
+    "videoUrl": "http://52.50.150.232/files/videos/Gm7AZIk76X_1481728885.mp4",
+    "previewUrl": "http://52.50.150.232/files/videos/UWb6Z7dKLW_1481728885.jpg"
+  }
 ]
 ```
 
-Returns links to 3 tutorial videos which resides on server.
+Returns links to 3 tutorial videos with video previews images, which resides on server.
 
 ### HTTP Request
  
