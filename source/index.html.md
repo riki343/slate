@@ -916,7 +916,8 @@ success   | bool     | It signifies successful completion of the request
   "takeWithYou": "Wine, Juice",
   "latitude": 22.4342,
   "longitude": 49.432432,
-  "chatRoomId":1
+  "generalChatRoomId": 1,
+  "eventChatRoomId": 299,
 }
 ```
 
@@ -1079,7 +1080,8 @@ eventId     | query string | integer    | id of event
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -1269,7 +1271,8 @@ success   | bool     | It signifies successful completion of the request
   "takeWithYou": "Wine, Juice",
   "latitude": 22.4342,
   "longitude": 49.4324,
-  "chatRoomId": 1,
+  "generalChatRoomId": 1,
+  "eventChatRoomId": 299,
   "reservedPlaces": 0,
   "hostUsername": "Illia Hapak",
   "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -1384,7 +1387,8 @@ rating    | float    | current event rating
   "takeWithYou": "2 bottles of wine",
   "latitude": 22,
   "longitude": 49,
-  "chatRoomId": 1,
+  "generalChatRoomId": 1,
+  "eventChatRoomId": 299,
   "reservedPlaces": 0,
   "hostUsername": "Illia Hapak",
   "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -1478,7 +1482,8 @@ userAvatar     | string   | url of author avatar
   "takeWithYou": "2 bottles of wine",
   "latitude": 22,
   "longitude": 49,
-  "chatRoomId": 1,
+  "generalChatRoomId": 1,
+  "eventChatRoom": 299,
   "reservedPlaces": 0,
   "hostUsername": "Illia Hapak",
   "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -1486,27 +1491,28 @@ userAvatar     | string   | url of author avatar
 }
 ```
 
-Key            | Type     | Description
--------------- | -------- | -----------
-id             | integer  | id of event
-title          | string   | title of event
-userId         | integer  | id of creator of event
-created        | string   | date of creation (format: ISO 8601)
-updated        | string   | date of last modification (format: ISO 8601)
-date           | string   | date of event (format: ISO 8601)
-status         | string   | status of event
-coverUrl       | string   | url of cover of event that resides on server
-places         | integer  | max count of people on event
-description    | string   | short description about the event
-address        | string   | address place of event
-takeWithYou    | string   | count of things which participants should bring on event
-latitude       | float    | latitude place of event
-longitude      | float    | longitude place of event
-chatRoomId     | integer  | id of general chat room
-reservedPlaces | integer  | count of participants
-hostUsername   | string   | username of creator
-hostAvatar     | string   | url of host avatar
-rating         | float    | rating of event
+Key               | Type     | Description
+----------------- | -------- | -----------
+id                | integer  | id of event
+title             | string   | title of event
+userId            | integer  | id of creator of event
+created           | string   | date of creation (format: ISO 8601)
+updated           | string   | date of last modification (format: ISO 8601)
+date              | string   | date of event (format: ISO 8601)
+status            | string   | status of event
+coverUrl          | string   | url of cover of event that resides on server
+places            | integer  | max count of people on event
+description       | string   | short description about the event
+address           | string   | address place of event
+takeWithYou       | string   | count of things which participants should bring on event
+latitude          | float    | latitude place of event
+longitude         | float    | longitude place of event
+generalChatRoomId | integer  | id of general chat room
+eventChatRoomId   | integer  | id of event chat room
+reservedPlaces    | integer  | count of participants
+hostUsername      | string   | username of creator
+hostAvatar        | string   | url of host avatar
+rating            | float    | rating of event
 
 ## Event Chat Room Message
 
@@ -2231,7 +2237,8 @@ success   | bool     | It signifies successful completion of the request
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2416,7 +2423,8 @@ defaultAvatar | string | Url of default avatar image which resides on server
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2437,7 +2445,8 @@ defaultAvatar | string | Url of default avatar image which resides on server
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2496,7 +2505,8 @@ size | query string | integer | size of page (optional), by default = 10
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2517,7 +2527,8 @@ size | query string | integer | size of page (optional), by default = 10
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2576,7 +2587,8 @@ size | query string | integer | size of page (optional), by default = 10
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2597,7 +2609,8 @@ size | query string | integer | size of page (optional), by default = 10
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2699,7 +2712,8 @@ size | query string | integer | size of page (optional), by default = 10
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2720,7 +2734,8 @@ size | query string | integer | size of page (optional), by default = 10
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2779,7 +2794,8 @@ size | query string | integer | size of page (optional), by default = 10
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
@@ -2800,7 +2816,8 @@ size | query string | integer | size of page (optional), by default = 10
     "takeWithYou": "Wine, Juice",
     "latitude": 22.4342,
     "longitude": 49.4324,
-    "chatRoomId": 1,
+    "generalChatRoomId": 1,
+    "eventChatRoomId": 299,
     "reservedPlaces": 0,
     "hostUsername": "Illia Hapak",
     "hostAvatar": "http://foodizfront.dev/files/images/gprDR_B2dZ_1468578009.jpg",
