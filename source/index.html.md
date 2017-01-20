@@ -917,7 +917,7 @@ success   | bool     | It signifies successful completion of the request
   "latitude": 22.4342,
   "longitude": 49.432432,
   "generalChatRoomId": 1,
-  "eventChatRoomId": 299,
+  "eventChatRoomId": 299
 }
 ```
 
@@ -1696,6 +1696,7 @@ messageId   | integer | id of chat room message
 userName    | string  | username of user that post a message
 userAvatar  | string  | avatar url of user that post a message
 eventId     | integer | id of event assigned to chat room, null if it's general chat room message
+resourceUrl | string  | url of photo or video posted into chat(message types: 'photo', 'video'), null for other message types('message', 'event')
 
 <aside class="notice">
  action contain "post_message"
